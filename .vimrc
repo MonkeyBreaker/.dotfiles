@@ -1,4 +1,8 @@
-" vimrc file for monkey
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VIMRC FILE FOR MONKEY
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations in insert mode only
@@ -9,8 +13,9 @@ iabbrev psignature <esc>:r signature.txt<cr>i
 iabbrev pccopy Copyright 2019 Monkey, all rights reserved.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Miscellanous vim configuration
+" Miscellaneous vim configuration
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " leader key : <leader>
 :let mapleader = "-"
 
@@ -31,7 +36,11 @@ set backspace=indent,eol,start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When using mapping always use the non-recursive method => *nore*
 
-" NORMAL
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" NORMAL
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Move lines Up & Down
 nnoremap <c-j> :m+1<cr>
@@ -44,14 +53,38 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 " Surround current word with double quotes, to improve with toggle "
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
-" INSERT 
+" Quick correct orthography
+nnoremap <c-l> [s1z=<c-o>
+nnoremap <F7> :setlocal spell!<cr>h 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" INSERT 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" This is useful for training purpose only, to train your brain to use the correct shortcut
+" inoremap <esc> <nop>
+inoremap qp <esc>
 inoremap <c-k> <esc>ddi
+
 " Toggle case of the word under the cursor
 inoremap <c-u> <esc>lg~iwi
 
-" VISUAL
+" Quick correct orthography
+inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
+" Toggle spell check
+inoremap <F7> <esc>:setlocal spell!<cr>a
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" VISUAL
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Surround current selection by ""
-" Possibility with less strokes way is to : c"<c-r>""
+" Possibility with less strokes way is to : c"<c-r>"" -> let you in insert mode, other option let you in normal mode
 vnoremap <leader>" xi""<esc>hp
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCOMMAND
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * setlocal spell spelllang=en_gb
 

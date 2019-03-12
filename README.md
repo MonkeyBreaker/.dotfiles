@@ -8,8 +8,10 @@ leader key : "-"
 
 | Mapping       | Effect        |
 | ------------- |---------------|
+| `<F7>`	| Toggle spell	|
 | Ctrl + J      | Move line down|
 | Ctrl + K      | Move line up  |
+| Ctrl + L	| Quick orthography fix |
 | `<leader>`ev  | Edit .vimrc   |
 | `<leader>`sv  | Source .vimrc |
 | `<leader>`"	| Surround word with double quotes |
@@ -18,11 +20,18 @@ leader key : "-"
 
 | Mapping       | Effect        |
 | ------------- |---------------|
+| `<F7>`	| Toggle spell	|
+| qp		| Enter normal mode |
 | Ctrl + K      | Delete line   |
-| Ctrl + U      | Toggle work case |
+| Ctrl + U      | Toggle word case |
+| Ctrl + L	| Quick orthography fix |
 
 ### Visual mode
 
 | Mapping       | Effect        |
 | ------------- |---------------|
 | `<leader>`"	| Surround selection with quotes |
+
+## Autocommand
+
+* Enable spell `gb` when starting vim
