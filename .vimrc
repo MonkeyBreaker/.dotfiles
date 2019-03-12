@@ -54,7 +54,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " Quick correct orthography
-nnoremap <c-l> [s1z=<c-o>
+nnoremap <c-l> 1z=<c-o>
 nnoremap <F7> :setlocal spell!<cr>h 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,10 +70,10 @@ inoremap <c-k> <esc>ddi
 inoremap <c-u> <esc>lg~iwi
 
 " Quick correct orthography
-inoremap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
 
 " Toggle spell check
-inoremap <F7> <esc>:setlocal spell!<cr>a
+inoremap <F7> <esc>l:setlocal spell!<cr>a
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" VISUAL
