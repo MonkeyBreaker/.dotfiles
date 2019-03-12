@@ -12,6 +12,7 @@ leader key : "-"
 | Ctrl + K      | Move line up  |
 | `<leader>`ev  | Edit .vimrc   |
 | `<leader>`sv  | Source .vimrc |
+| `<leader>`"	| Surround word with double quotes |
 
 ### Insert mode
 
@@ -19,3 +20,9 @@ leader key : "-"
 | ------------- |---------------|
 | Ctrl + K      | Delete line   |
 | Ctrl + U      | Toggle work case |
+
+### Visual mode
+
+| Mapping       | Effect        |
+| ------------- |---------------|
+| `<leader>`"	| Surround selection with quotes |

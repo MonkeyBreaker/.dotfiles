@@ -41,10 +41,17 @@ nnoremap <c-k> :m-2<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Surround current word with double quotes, to improve with toggle "
+nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+
 " INSERT 
 
 inoremap <c-k> <esc>ddi
 " Toggle case of the word under the cursor
 inoremap <c-u> <esc>lg~iwi
 
+" VISUAL
+" Surround current selection by ""
+" Possibility with less strokes way is to : c"<c-r>""
+vnoremap <leader>" xi""<esc>hp
 
