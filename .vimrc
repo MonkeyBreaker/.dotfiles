@@ -5,6 +5,20 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCOMMAND
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+autocmd VimEnter * setlocal spell spelllang=en_gb
+autocmd VimEnter,BufReadPre *.vimrc let commentSyntax='" '
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VARIABLES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if 0 == exists("commentSyntax")
+	let commentSyntax = ' '
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations in insert mode only
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 iabbrev @@ monkey
@@ -36,8 +50,6 @@ set backspace=indent,eol,start
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " When using mapping always use the non-recursive method => *nore*
 
-
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NORMAL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -57,6 +69,9 @@ nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 nnoremap <c-l> 1z=<c-o>
 nnoremap <F7> :setlocal spell!<cr>h 
 
+" Comment current line
+nnoremap <leader>c 0"=commentSyntax<c-m>P
+ 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,8 +98,6 @@ inoremap <F7> <esc>l:setlocal spell!<cr>a
 " Possibility with less strokes way is to : c"<c-r>"" -> let you in insert mode, other option let you in normal mode
 vnoremap <leader>" xi""<esc>hp
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" AUTOCOMMAND
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * setlocal spell spelllang=en_gb
+" Comment selected line(s) 
+vnoremap <leader>c :s!^!<c-r>=commentSyntax<cr>!<cr>
 

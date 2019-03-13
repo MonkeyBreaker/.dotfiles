@@ -15,6 +15,7 @@ leader key : "-"
 | `<leader>`ev  | Edit .vimrc   |
 | `<leader>`sv  | Source .vimrc |
 | `<leader>`"	| Surround word with double quotes |
+| `<leader>`c	| Comment line	|
 
 ### Insert mode
 
@@ -31,6 +32,8 @@ leader key : "-"
 | Mapping       | Effect        |
 | ------------- |---------------|
 | `<leader>`"	| Surround selection with quotes |
+| `<leader>`c	| Comment selected line(s) |
+
 
 ## Autocommand
 
