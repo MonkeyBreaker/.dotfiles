@@ -78,6 +78,9 @@ nnoremap <F7> :setlocal spell!<cr>h
 
 " Comment current line
 nnoremap <leader>c 0"=g:commentSyntax<c-m>P
+
+" Go to next parathese, delete content and put in insert mode
+nnoremap <leader>8 f(vi(c
  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 

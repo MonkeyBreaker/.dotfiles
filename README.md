@@ -16,6 +16,7 @@ leader key : "-"
 | `<leader>`sv  | Source .vimrc |
 | `<leader>`"	| Surround word with double quotes |
 | `<leader>`c	| Comment line	|
+| `<leader>`8	| Replace the content of the next parathesis |
 
 ### Insert mode
 
