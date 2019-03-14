@@ -8,14 +8,14 @@
 " AUTOCOMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd VimEnter * setlocal spell spelllang=en_gb
-autocmd VimEnter,BufReadPre *.vimrc let commentSyntax='" '
+autocmd VimEnter * setlocal spelllang=en_gb
+autocmd VimEnter,BufReadPre *.vimrc let g:commentSyntax='" '
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if 0 == exists("commentSyntax")
-	let commentSyntax = ' '
+if 0 == exists("g:commentSyntax")
+	let g:commentSyntax = ' '
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,7 +70,7 @@ nnoremap <c-l> 1z=<c-o>
 nnoremap <F7> :setlocal spell!<cr>h 
 
 " Comment current line
-nnoremap <leader>c 0"=commentSyntax<c-m>P
+nnoremap <leader>c 0"=g:commentSyntax<c-m>P
  
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
@@ -99,5 +99,5 @@ inoremap <F7> <esc>l:setlocal spell!<cr>a
 vnoremap <leader>" xi""<esc>hp
 
 " Comment selected line(s) 
-vnoremap <leader>c :s!^!<c-r>=commentSyntax<cr>!<cr>
+vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
 
