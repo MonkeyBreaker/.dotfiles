@@ -8,8 +8,15 @@
 " AUTOCOMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd VimEnter * setlocal spelllang=en_gb
-autocmd VimEnter,BufReadPre *.vimrc let g:commentSyntax='" '
+augroup spelling
+	autocmd!
+	autocmd VimEnter * setlocal spelllang=en_gb
+augroup END
+
+augroup commentary
+	autocmd!
+	autocmd VimEnter,BufReadPre *.vimrc let g:commentSyntax='" '
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
