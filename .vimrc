@@ -10,9 +10,10 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" za for using folding {{{
 augroup filetype_vim
 	autocmd!
-       	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType vim setlocal foldmethod=marker
 	autocmd FileType vim let g:commentSyntax='" '
 augroup END
 
@@ -21,6 +22,7 @@ augroup spelling
 	autocmd VimEnter * setlocal spelllang=en_gb
 augroup END
 
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,10 +43,10 @@ iabbrev pccopy Copyright 2019 Monkey, all rights reserved.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " leader key : <leader>
-:let mapleader = "-"
+let mapleader = "-"
 
 " local leader key : <localleader>
-":let maplocalleader = "\\"
+" let maplocalleader = "\\"
 
 " enable displaying line numbers on files
 set number
