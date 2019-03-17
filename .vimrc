@@ -57,6 +57,15 @@ set number
 " Fix default behaviour of backspace, see : https://vi.stackexchange.com/a/2163
 set backspace=indent,eol,start
 
+" Status line custom configuration
+set statusline=%f 		" Path to the file
+set statusline+=\ -\ 		" Separator
+set statusline+=FileType:	" Label
+set statusline+=%y 		" Filetype of the file
+set statusline+=%= 		" Switch to the right side
+set statusline+=%l 		" Current line
+set statusline+=/ 		" Separator
+set statusline+=%L 		" Total lines
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPING STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
