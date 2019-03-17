@@ -4,18 +4,21 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable filetype detection, plugin and indentation enabled
+filetype plugin indent on
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup filetype_vim
+	autocmd!
+       	autocmd FileType vim setlocal foldmethod=marker
+	autocmd FileType vim let g:commentSyntax='" '
+augroup END
 
 augroup spelling
 	autocmd!
 	autocmd VimEnter * setlocal spelllang=en_gb
-augroup END
-
-augroup commentary
-	autocmd!
-	autocmd VimEnter,BufReadPre *.vimrc let g:commentSyntax='" '
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
