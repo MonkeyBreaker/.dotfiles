@@ -29,7 +29,6 @@ augroup END
 if 0 == exists("g:commentSyntax")
 	let g:commentSyntax = ' '
 endif
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations in insert mode only
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -39,8 +38,9 @@ iabbrev psignature <esc>:r signature.txt<cr>i
 iabbrev pccopy Copyright 2019 Monkey, all rights reserved.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Miscellaneous vim configuration
+" Basic settings 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
 
 " leader key : <leader>
 let mapleader = "-"
@@ -66,6 +66,7 @@ set statusline+=%= 		" Switch to the right side
 set statusline+=%l 		" Current line
 set statusline+=/ 		" Separator
 set statusline+=%L 		" Total lines
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPING STUFF
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,7 +74,8 @@ set statusline+=%L 		" Total lines
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" NORMAL
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
 
 " Move lines Up & Down
 nnoremap <c-j> :m+1<cr>
@@ -95,10 +97,12 @@ nnoremap <leader>c 0"=g:commentSyntax<c-m>P
 
 " Go to next parathese, delete content and put in insert mode
 nnoremap <leader>8 f(vi(c
- 
+
+" }}} 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
 
 " This is useful for training purpose only, to train your brain to use the correct shortcut
 " inoremap <esc> <nop>
@@ -114,9 +118,11 @@ inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
 " Toggle spell check
 inoremap <F7> <esc>l:setlocal spell!<cr>a
 
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" VISUAL
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
 
 " Surround current selection by ""
 " Possibility with less strokes way is to : c"<c-r>"" -> let you in insert mode, other option let you in normal mode
@@ -124,4 +130,5 @@ vnoremap <leader>" xi""<esc>hp
 
 " Comment selected line(s) 
 vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
+" }}}
 
