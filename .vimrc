@@ -96,6 +96,10 @@ nnoremap <leader>c 0"=g:commentSyntax<c-m>P
 " Go to next parathese, delete content and put in insert mode
 nnoremap <leader>8 f(vi(c
  
+" Add a new line after/before but stay in Normal mode
+nnoremap <leader>o :<c-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <leader>O :<c-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
