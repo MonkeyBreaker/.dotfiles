@@ -2,7 +2,7 @@
 
 ## Mapping
 
-leader key : "-"
+leader key : `-`
 
 ### Normal mode
 
