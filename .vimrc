@@ -15,6 +15,7 @@ augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
 	autocmd FileType vim let g:commentSyntax='" '
+	autocmd FileType python let g:commentSyntax='# '
 augroup END
 
 augroup spelling
