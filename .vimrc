@@ -76,8 +76,8 @@ set statusline+=%L 		" Total lines
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Move lines Up & Down
-nnoremap <c-j> :m+1<cr>
-nnoremap <c-k> :m-2<cr>
+nnoremap <c-j> :let @"=col('.')<cr>:m+1<cr>==@"lh
+nnoremap <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh
 
 " Edit and sources .vimrc file
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
