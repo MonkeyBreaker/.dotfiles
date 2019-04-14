@@ -15,6 +15,7 @@ augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
 	autocmd FileType vim let g:commentSyntax='" '
+	autocmd FileType python let g:commentSyntax='# '
 augroup END
 
 augroup spelling
@@ -78,8 +79,8 @@ set statusline+=%L 		" Total lines
 " {{{
 
 " Move lines Up & Down
-nnoremap <c-j> :m+1<cr>
-nnoremap <c-k> :m-2<cr>
+nnoremap <c-j> :let @"=col('.')<cr>:m+1<cr>==@"lh
+nnoremap <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh
 
 " Edit and sources .vimrc file
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -98,7 +99,11 @@ nnoremap <leader>c 0"=g:commentSyntax<c-m>P
 " Go to next parathese, delete content and put in insert mode
 nnoremap <leader>8 f(vi(c
 
-" }}} 
+" Add a new line after/before but stay in Normal mode
+nnoremap <leader>o :<c-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <leader>O :<c-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+" }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
