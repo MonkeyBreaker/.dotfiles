@@ -3,7 +3,12 @@
 " VIMRC FILE FOR MONKEY
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" enter the current millenium
+" use vim in a modern way, not compatible with Vi
+set nocompatible
 
+" enable syntax and plugins (for netrw)
+syntax enable
 " Enable filetype detection, plugin and indentation enabled
 filetype plugin indent on
 
@@ -15,12 +20,20 @@ augroup filetype_vim
 	autocmd!
 	autocmd FileType vim setlocal foldmethod=marker
 	autocmd FileType vim let g:commentSyntax='" '
-	autocmd FileType python let g:commentSyntax='# '
 augroup END
 
 augroup spelling
 	autocmd!
 	autocmd VimEnter * setlocal spelllang=en_gb
+augroup END
+
+" See https://gist.github.com/eduardocereto/3088543
+augroup filetype_python
+	autocmd!
+	autocmd BufEnter,BufRead *.py let g:commentSyntax='# '
+	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+	autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+	autocmd FileType python set foldmethod=indent foldlevel=99
 augroup END
 
 " }}}
@@ -59,6 +72,7 @@ set number
 set backspace=indent,eol,start
 
 " Status line custom configuration
+set ls=2 "Always show status line"
 set statusline=%f 		" Path to the file
 set statusline+=\ -\ 		" Separator
 set statusline+=FileType:	" Label
@@ -67,6 +81,15 @@ set statusline+=%= 		" Switch to the right side
 set statusline+=%l 		" Current line
 set statusline+=/ 		" Separator
 set statusline+=%L 		" Total lines
+
+" Finding files
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPING STUFF
@@ -122,6 +145,9 @@ inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
 
 " Toggle spell check
 inoremap <F7> <esc>l:setlocal spell!<cr>a
+
+"Fix Shift+Tab
+inoremap <s-tab> <Esc><<i
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
