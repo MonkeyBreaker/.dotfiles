@@ -34,6 +34,7 @@ augroup filetype_python
 	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
 	autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 	autocmd FileType python set foldmethod=indent foldlevel=99
+	au BufNewFile *.py 0r skeleton/skeleton.py
 augroup END
 
 " }}}
