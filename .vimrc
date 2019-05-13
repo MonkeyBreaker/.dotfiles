@@ -164,3 +164,27 @@ vnoremap <leader>" xi""<esc>hp
 vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
 " }}}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
+
+" install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" initialise vim-plug
+call plug#begin('~/.vim/plugged')
+
+" VIM Table Mode
+" https://github.com/dhruvasagar/vim-table-mode
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+
+" Initialize plugin system
+call plug#end()
+
+" }}}
+
