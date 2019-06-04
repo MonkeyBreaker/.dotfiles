@@ -20,16 +20,18 @@ leader key : `-`
 | `<leader>`tm  | Toggle Table Mode                          |
 | `<leader>`tdd | Delete Row in Table mode                   |
 | `<leader>`tdc | Delete Column in Table mode                |
+| `<leader>`dt  | Insert date under cursor (d/m/y)           |
 
 ### Insert mode
 
-| Mapping  | Effect                |
-|----------|-----------------------|
-| `<F7>`   | Toggle spell          |
-| qp       | Enter normal mode     |
-| Ctrl + K | Delete line           |
-| Ctrl + U | Toggle word case      |
-| Ctrl + L | Quick orthography fix |
+| Mapping        | Effect                           |
+|----------------|----------------------------------|
+| `<F7>`         | Toggle spell                     |
+| qp             | Enter normal mode                |
+| Ctrl + K       | Delete line                      |
+| Ctrl + U       | Toggle word case                 |
+| Ctrl + L       | Quick orthography fix            |
+| `<leader>`date | Insert date under cursor (d/m/y) |
 
 ### Visual mode
 

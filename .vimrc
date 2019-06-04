@@ -143,6 +143,9 @@ nnoremap <leader>8 f(vi(c
 nnoremap <leader>o :<c-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <leader>O :<c-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+" Insert date in format day/month/year
+nnoremap <leader>dt "=strftime("%d/%m/%y")<CR>P
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
@@ -163,8 +166,11 @@ inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
 " Toggle spell check
 inoremap <F7> <esc>l:setlocal spell!<cr>a
 
-"Fix Shift+Tab
+" Fix Shift+Tab
 inoremap <s-tab> <Esc><<i
+
+" Insert date format day/month/year
+inoremap <leader>date <C-R>=strftime("%d/%m/%y")<CR>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
