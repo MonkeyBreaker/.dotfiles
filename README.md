@@ -51,3 +51,7 @@ leader key : `-`
 ### [VIM Table Mode](https://github.com/dhruvasagar/vim-table-mode)
 
 Currently this mode is only available when edinting markdown files. This restriction can be easely changed in the `.vimrc`.
+
+### [VIM Python Mode](https://github.com/python-mode/python-mode)
+
+A Python IDE for Vim, read help (:help pymode) or see the [wiki](https://github.com/python-mode/python-mode/wiki) for more information.

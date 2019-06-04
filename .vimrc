@@ -17,30 +17,35 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " za for using folding {{{
 augroup filetype_vim
-	autocmd!
-	autocmd FileType vim setlocal foldmethod=marker
-	autocmd FileType vim let g:commentSyntax='" '
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim let g:commentSyntax='" '
 augroup END
 
 augroup spelling
-	autocmd!
-	autocmd VimEnter * setlocal spelllang=en_gb
+    autocmd!
+    autocmd VimEnter * setlocal spelllang=en_gb
 augroup END
 
 " See https://gist.github.com/eduardocereto/3088543
 augroup filetype_python
-	autocmd!
-	autocmd BufEnter,BufRead *.py let g:commentSyntax='# '
-	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-	autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-	autocmd FileType python set foldmethod=indent foldlevel=99
+    autocmd!
+    autocmd BufEnter,BufRead *.py let g:commentSyntax='# '
+    " By default python-mode use python2, enable python3 by default
+    autocmd BufEnter,BufRead *.py let g:pymode_python = 'python3'
+" 	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+" 	autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+" 	autocmd FileType python set foldmethod=indent foldlevel=99
+"     " enable all Python syntax highlighting features
+" 	autocmd FileType python let python_highlight_all = 1
 " 	autocmd BufNewFile *.py 0r skeleton/skeleton.py
 augroup END
 
 augroup filetype_make
     autocmd!
 	" Use actual tab chars in Makefiles.
-	autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+    autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+augroup END
 augroup END
 
 " }}}
@@ -204,6 +209,10 @@ call plug#begin('~/.vim/plugged')
 " VIM Table Mode
 " https://github.com/dhruvasagar/vim-table-mode
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+
+" VIM Python Mode
+" https://github.com/python-mode/python-mode
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Initialize plugin system
 call plug#end()
