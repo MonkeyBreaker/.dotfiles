@@ -118,6 +118,12 @@ set shiftwidth=4    " Indents will have a width of 4.
 set softtabstop=4   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
 
+" indent when moving to the next line while writing code
+set autoindent
+
+" show the matching part of the pair for [] {} and ()
+set showmatch
+
 " Color column to show explicitely 80 chars
 if exists('+colorcolumn')
   set colorcolumn=81
