@@ -20,6 +20,7 @@ augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType vim let g:commentSyntax='" '
+    autocmd FileType vim setlocal colorcolumn=0
 augroup END
 
 augroup spelling
@@ -46,6 +47,10 @@ augroup filetype_make
 	" Use actual tab chars in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
 augroup END
+
+augroup filetype_markdown
+    autocmd!
+    autocmd FileType markdown setlocal colorcolumn=0
 augroup END
 
 " }}}
@@ -112,6 +117,13 @@ set tabstop=4       " The width of a TAB is set to 4.
 set shiftwidth=4    " Indents will have a width of 4.
 set softtabstop=4   " Sets the number of columns for a TAB.
 set expandtab       " Expand TABs to spaces.
+
+" Color column to show explicitely 80 chars
+if exists('+colorcolumn')
+  set colorcolumn=81
+  highlight ColorColumn ctermbg=red
+endif
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPING STUFF
