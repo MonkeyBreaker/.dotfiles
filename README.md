@@ -28,14 +28,13 @@ leader key : `-`
 
 ### Insert mode
 
-| Mapping        | Effect                           |
-|----------------|----------------------------------|
-| `<F7>`         | Toggle spell                     |
-| qp             | Enter normal mode                |
-| Ctrl + K       | Delete line                      |
-| Ctrl + U       | Toggle word case                 |
-| Ctrl + L       | Quick orthography fix            |
-| `<leader>`date | Insert date under cursor (d/m/y) |
+| Mapping  | Effect                |
+|----------|-----------------------|
+| `<F7>`   | Toggle spell          |
+| qp       | Enter normal mode     |
+| Ctrl + K | Delete line           |
+| Ctrl + U | Toggle word case      |
+| Ctrl + L | Quick orthography fix |
 
 ### Visual mode
 
