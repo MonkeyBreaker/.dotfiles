@@ -137,6 +137,17 @@ if exists('+colorcolumn')
   highlight ColorColumn ctermbg=red
 endif
 
+" help adjust the default colours for better contrast
+set background=dark
+
+" 2 lines above/below cursor when scrolling
+set scrolloff=2
+
+" more natural split opening
+set splitbelow
+" more natural split opening
+set splitright
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MAPPING STUFF
@@ -172,6 +183,9 @@ nnoremap <leader>8 f(vi(c
 " Add a new line after/before but stay in Normal mode
 nnoremap <leader>o :<c-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <leader>O :<c-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+" goto midle of line
+nnoremap gm :call cursor(0, len(getline('.'))/2)<CR>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -212,6 +226,10 @@ vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
 " move selected lines
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
+
+" replace cursor to original place
+vnoremap < <gv
+vnoremap > >gv
 
 " }}}
 
