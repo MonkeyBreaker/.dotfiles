@@ -208,6 +208,11 @@ vnoremap <leader>" xi""<esc>hp
 
 " Comment selected line(s) 
 vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
+
+" move selected lines
+vnoremap <c-j> :m '>+1<CR>gv=gv
+vnoremap <c-k> :m '<-2<CR>gv=gv
+
 " }}}
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
