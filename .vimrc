@@ -53,6 +53,11 @@ augroup filetype_markdown
     autocmd FileType markdown setlocal colorcolumn=0
 augroup END
 
+" augroup surround_vim
+"     autocmd!
+"     autocmd FileType     let g:surround_47 = "<% \r %>"
+" augroup END
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
@@ -223,6 +228,10 @@ endif
 
 " initialise vim-plug
 call plug#begin('~/.vim/plugged')
+
+" surround.vim
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
 
 " VIM Table Mode
 " https://github.com/dhruvasagar/vim-table-mode
