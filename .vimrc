@@ -210,7 +210,7 @@ nnoremap gm :call cursor(0, len(getline('.'))/2)<CR>
 " This is useful for training purpose only, to train your brain to use the correct shortcut
 " inoremap <esc> <nop>
 inoremap qp <esc>
-inoremap <c-k> <esc>ddi
+" inoremap <c-k> <esc>ddi
 
 " Toggle case of the word under the cursor
 inoremap <c-u> <esc>lg~iwi
@@ -219,10 +219,11 @@ inoremap <c-u> <esc>lg~iwi
 inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
 
 " Toggle spell check
-inoremap <F7> <esc>l:setlocal spell!<cr>a
+inoremap <F7> <esc>l:setlocal spell!<cr>i
 
 " Fix Shift+Tab
 inoremap <s-tab> <Esc><<i
+
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -279,6 +280,18 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 " VIM Python Mode
 " https://github.com/python-mode/python-mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+" gen_tags.vim
+" https://github.com/jsfaint/gen_tags.vim
+Plug 'jsfaint/gen_tags.vim'
+
+" UltiSnips
+" https://github.com/SirVer/ultisnips
+Plug 'SirVer/ultisnips'
+
+" snipMate & UltiSnip Snippets
+" https://github.com/honza/vim-snippets
+Plug 'honza/vim-snippets'
 
 " Initialize plugin system
 call plug#end()

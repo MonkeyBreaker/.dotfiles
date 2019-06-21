@@ -28,13 +28,15 @@ leader key : `-`
 
 ### Insert mode
 
-| Mapping  | Effect                |
-|----------|-----------------------|
-| `<F7>`   | Toggle spell          |
-| qp       | Enter normal mode     |
-| Ctrl + K | Delete line           |
-| Ctrl + U | Toggle word case      |
-| Ctrl + L | Quick orthography fix |
+| Mapping  | Effect                 |
+|----------|------------------------|
+| `<F7>`   | Toggle spell           |
+| qp       | Enter normal mode      |
+| Ctrl + U | Toggle word case       |
+| Ctrl + L | Quick orthography fix  |
+| Ctrl + J | snippet jump forward   |
+| Ctrl + K | snippet jump backward  |
+| `<tab>`  | snippet expand trigger |
 
 ### Visual mode
 
@@ -65,3 +67,12 @@ Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tag
 ### [commentary.vim](https://github.com/tpope/vim-commentary)
 
 Comment stuff out.
+
+### [UltiSnips](https://github.com/SirVer/ultisnips)
+
+UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+
+### [vim-snippets](https://github.com/honza/vim-snippets)
+
+This repository contains snippets files for various programming languages. Snippets are separated from the engine.
+
