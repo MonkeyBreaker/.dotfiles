@@ -14,7 +14,6 @@ leader key : `-`
 | Ctrl + L                  | Quick orthography fix                       |
 | `<leader>`ev              | Edit .vimrc                                 |
 | `<leader>`sv              | Source .vimrc                               |
-| `<leader>`c               | Comment line                                |
 | `<leader>`8               | Replace the content of the next parathesis  |
 | `<leader>`tm              | Toggle Table Mode                           |
 | `<leader>`tdd             | Delete Row in Table mode                    |
@@ -24,6 +23,8 @@ leader key : `-`
 | ys`<motion><new>`         | you surround with `<motion>` with `<new>`   |
 | ySS`<new>`                | you surround up & down with `<new>`         |
 | ys`<motion>`f`<func><cr>` | you surround `<motion>` with func()         |
+| gcc                       | Comment or uncomment [count] lines.         |
+| gc`<motion>`              | Comment or uncomment lines with {motion}    |
 
 ### Insert mode
 
@@ -37,10 +38,10 @@ leader key : `-`
 
 ### Visual mode
 
-| Mapping       | Effect                   |
-|---------------|--------------------------|
-| `<leader>`c   | Comment selected line(s) |
-| `<leader>`tmm | Tableize selected lines  |
+| Mapping       | Effect                                      |
+|---------------|---------------------------------------------|
+| `<leader>`tmm | Tableize selected lines                     |
+| gc            | Comment or uncomment the highlighted lines. |
 
 
 ## Autocommand
@@ -60,3 +61,7 @@ A Python IDE for Vim, read help (:help pymode) or see the [wiki](https://github.
 ### [surround.vim](https://github.com/tpope/vim-surround)
 
 Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+
+### [commentary.vim](https://github.com/tpope/vim-commentary)
+
+Comment stuff out.

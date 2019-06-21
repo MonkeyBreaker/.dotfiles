@@ -19,7 +19,7 @@ filetype plugin indent on
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim let g:commentSyntax='" '
+    autocmd FileType vim setlocal commentstring=\"\ %s
     autocmd FileType vim setlocal colorcolumn=0
 augroup END
 
@@ -31,7 +31,7 @@ augroup END
 " See https://gist.github.com/eduardocereto/3088543
 augroup filetype_python
     autocmd!
-    autocmd BufEnter,BufRead *.py let g:commentSyntax='# '
+    autocmd FileType python setlocal commentstring=\#\ %s
     " By default python-mode use python2, enable python3 by default
     autocmd BufEnter,BufRead *.py let g:pymode_python = 'python3'
 " 	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
@@ -46,6 +46,18 @@ augroup filetype_make
     autocmd!
 	" Use actual tab chars in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
+    autocmd FileType make setlocal commentstring=\#\ %s
+augroup END
+
+augroup filetype_c
+    autocmd!
+    autocmd FileType c setlocal commentstring=\/\/\ %s
+    autocmd FileType cpp setlocal commentstring=\/\/\ %s
+augroup END
+
+augroup filetype_bash
+    autocmd!
+    autocmd FileType bash setlocal commentstring=\#\ %s
 augroup END
 
 augroup filetype_markdown
@@ -62,8 +74,8 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if 0 == exists("g:commentSyntax")
-	let g:commentSyntax = ' '
+if 0 == exists("commentstring")
+    setlocal commentstring=\ %s
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations in insert mode only
@@ -175,8 +187,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <c-l> 1z=<c-o>
 nnoremap <F7> :setlocal spell!<cr>h 
 
+" Disable because now plugin commentary is used
 " Comment current line
-nnoremap <leader>c 0"=g:commentSyntax<c-m>P
+" nnoremap <leader>c 0"=commentstring<c-m>P
 
 " Go to next parathese, delete content and put in insert mode
 nnoremap <leader>8 f(vi(c
@@ -222,8 +235,9 @@ inoremap <s-tab> <Esc><<i
 " Possibility with less strokes way is to : c"<c-r>"" -> let you in insert mode, other option let you in normal mode
 " vnoremap <leader>" xi""<esc>hp
 
+" Disable because now plugin commentary is used
 " Comment selected line(s) 
-vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
+" vnoremap <leader>c :s!^!<c-r>=commentstring<cr>!<cr>
 
 " move selected lines
 vnoremap <c-j> :m '>+1<CR>gv=gv
@@ -253,6 +267,10 @@ call plug#begin('~/.vim/plugged')
 " surround.vim
 " https://github.com/tpope/vim-surround
 Plug 'tpope/vim-surround'
+
+" commentary.vim
+" https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
 
 " VIM Table Mode
 " https://github.com/dhruvasagar/vim-table-mode
