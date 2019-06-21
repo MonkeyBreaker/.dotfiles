@@ -167,8 +167,9 @@ nnoremap <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+" Disable because now plugin surround.cim is used
 " Surround current word with double quotes, to improve with toggle "
-nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+" nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
 
 " Quick correct orthography
 nnoremap <c-l> 1z=<c-o>
@@ -216,9 +217,10 @@ inoremap <s-tab> <Esc><<i
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{
 
+" Disable because now plugin surround.cim is used
 " Surround current selection by ""
 " Possibility with less strokes way is to : c"<c-r>"" -> let you in insert mode, other option let you in normal mode
-vnoremap <leader>" xi""<esc>hp
+" vnoremap <leader>" xi""<esc>hp
 
 " Comment selected line(s) 
 vnoremap <leader>c :s!^!<c-r>=g:commentSyntax<cr>!<cr>
