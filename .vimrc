@@ -63,6 +63,11 @@ augroup END
 augroup filetype_markdown
     autocmd!
     autocmd FileType markdown setlocal colorcolumn=0
+    autocmd FileType markdown let g:markdown_folding=1
+    autocmd FileType markdown let g:markdown_enable_folding=1
+    autocmd FileType markdown setlocal foldmethod=manual
+    autocmd FileType markdown setlocal foldcolumn=0
+    autocmd FileType markdown setlocal foldlevel=3
 augroup END
 
 " augroup surround_vim
