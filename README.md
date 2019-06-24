@@ -6,25 +6,15 @@ leader key : `-`
 
 ### Normal mode
 
-| Mapping                   | Effect                                      |
-|---------------------------|---------------------------------------------|
-| `<F7>`                    | Toggle spell                                |
-| Ctrl + J                  | Move line down                              |
-| Ctrl + K                  | Move line up                                |
-| Ctrl + L                  | Quick orthography fix                       |
-| `<leader>`ev              | Edit .vimrc                                 |
-| `<leader>`sv              | Source .vimrc                               |
-| `<leader>`8               | Replace the content of the next parathesis  |
-| `<leader>`tm              | Toggle Table Mode                           |
-| `<leader>`tdd             | Delete Row in Table mode                    |
-| `<leader>`tdc             | Delete Column in Table mode                 |
-| cs`<old><new>`            | Change surroundings from `<old>` to `<new>` |
-| ds`<old>`                 | Delete surroundings `<old>`                 |
-| ys`<motion><new>`         | you surround with `<motion>` with `<new>`   |
-| ySS`<new>`                | you surround up & down with `<new>`         |
-| ys`<motion>`f`<func><cr>` | you surround `<motion>` with func()         |
-| gcc                       | Comment or uncomment [count] lines.         |
-| gc`<motion>`              | Comment or uncomment lines with {motion}    |
+| Mapping      | Effect                                     |
+|--------------|--------------------------------------------|
+| `<F7>`       | Toggle spell                               |
+| Ctrl + J     | Move line down                             |
+| Ctrl + K     | Move line up                               |
+| Ctrl + L     | Quick orthography fix                      |
+| `<leader>`ev | Edit .vimrc                                |
+| `<leader>`sv | Source .vimrc                              |
+| `<leader>`8  | Replace the content of the next parathesis |
 
 ### Insert mode
 
@@ -56,6 +46,14 @@ leader key : `-`
 
 Currently this mode is only available when editing markdown files. This restriction can be easily changed in the `.vimrc`.
 
+#### Normal mode
+
+| Mapping       | Effect                      |
+|---------------|-----------------------------|
+| `<leader>`tm  | Toggle Table Mode           |
+| `<leader>`tdd | Delete Row in Table mode    |
+| `<leader>`tdc | Delete Column in Table mode |
+
 ### [VIM Python Mode](https://github.com/python-mode/python-mode)
 
 A Python IDE for Vim, read help (:help pymode) or see the [wiki](https://github.com/python-mode/python-mode/wiki) for more information.
@@ -64,9 +62,27 @@ A Python IDE for Vim, read help (:help pymode) or see the [wiki](https://github.
 
 Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
 
+#### Normal mode
+
+| Mapping                   | Effect                                      |
+|---------------------------|---------------------------------------------|
+| cs`<old><new>`            | Change surroundings from `<old>` to `<new>` |
+| ds`<old>`                 | Delete surroundings `<old>`                 |
+| ys`<motion><new>`         | you surround with `<motion>` with `<new>`   |
+| ySS`<new>`                | you surround up & down with `<new>`         |
+| ys`<motion>`f`<func><cr>` | you surround `<motion>` with func()         |
+
 ### [commentary.vim](https://github.com/tpope/vim-commentary)
 
 Comment stuff out.
+
+#### Normal mode
+
+| Mapping      | Effect                                     |
+|--------------|--------------------------------------------|
+| gcc          | Comment or uncomment [count] lines.        |
+| gc`<motion>` | Comment or uncomment lines with `<motion>` |
+
 
 ### [UltiSnips](https://github.com/SirVer/ultisnips)
 
