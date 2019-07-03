@@ -50,6 +50,12 @@ Plug 'SirVer/ultisnips'
 " https://github.com/honza/vim-snippets
 Plug 'honza/vim-snippets'
 
+" vimtex
+" https://github.com/lervag/vimtex
+Plug 'lervag/vimtex', { 'for': 'tex' }
+let g:vimtex_view_general_viewer = 'okular'
+" let g:vimtex_view_method = 'okular'
+
 " Initialize plugin system
 call plug#end()
 

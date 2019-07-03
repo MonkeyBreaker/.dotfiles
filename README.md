@@ -92,3 +92,11 @@ UltiSnips is the ultimate solution for snippets in Vim. It has tons of features 
 
 This repository contains snippets files for various programming languages. Snippets are separated from the engine.
 
+### [vimtex](https://github.com/lervag/vimtex)
+
+vimtex is a Vim plugin that provides support for writing LaTeX documents.
+
+| Mapping | Effect                          |
+|---------|---------------------------------|
+| \ll     | Enable/Disable auto compilation |
+
