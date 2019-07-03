@@ -7,10 +7,58 @@
 " use vim in a modern way, not compatible with Vi
 set nocompatible
 
-" enable syntax and plugins (for netrw)
-syntax enable
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" PLUGINS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
+
+" install vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" initialise vim-plug
+call plug#begin('~/.vim/plugged')
+
+" surround.vim
+" https://github.com/tpope/vim-surround
+Plug 'tpope/vim-surround'
+
+" commentary.vim
+" https://github.com/tpope/vim-commentary
+Plug 'tpope/vim-commentary'
+
+" VIM Table Mode
+" https://github.com/dhruvasagar/vim-table-mode
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+
+" VIM Python Mode
+" https://github.com/python-mode/python-mode
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
+" gen_tags.vim
+" https://github.com/jsfaint/gen_tags.vim
+Plug 'jsfaint/gen_tags.vim'
+
+" UltiSnips
+" https://github.com/SirVer/ultisnips
+Plug 'SirVer/ultisnips'
+
+" snipMate & UltiSnip Snippets
+" https://github.com/honza/vim-snippets
+Plug 'honza/vim-snippets'
+
+" Initialize plugin system
+call plug#end()
+
+" }}}
+
 " Enable filetype detection, plugin and indentation enabled
 filetype plugin indent on
+" enable syntax and plugins (for netrw)
+syntax enable
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMAND
@@ -256,51 +304,4 @@ vnoremap > >gv
 
 " }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"" PLUGINS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {{{
-
-" install vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" initialise vim-plug
-call plug#begin('~/.vim/plugged')
-
-" surround.vim
-" https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
-
-" commentary.vim
-" https://github.com/tpope/vim-commentary
-Plug 'tpope/vim-commentary'
-
-" VIM Table Mode
-" https://github.com/dhruvasagar/vim-table-mode
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-
-" VIM Python Mode
-" https://github.com/python-mode/python-mode
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
-" gen_tags.vim
-" https://github.com/jsfaint/gen_tags.vim
-Plug 'jsfaint/gen_tags.vim'
-
-" UltiSnips
-" https://github.com/SirVer/ultisnips
-Plug 'SirVer/ultisnips'
-
-" snipMate & UltiSnip Snippets
-" https://github.com/honza/vim-snippets
-Plug 'honza/vim-snippets'
-
-" Initialize plugin system
-call plug#end()
-
-" }}}
 
