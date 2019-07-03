@@ -16,6 +16,7 @@ filetype plugin indent on
 " AUTOCOMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " za for using folding {{{
+
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
@@ -40,6 +41,7 @@ augroup filetype_python
 "     " enable all Python syntax highlighting features
 " 	autocmd FileType python let python_highlight_all = 1
 " 	autocmd BufNewFile *.py 0r skeleton/skeleton.py
+    autocmd FileType python setlocal colorcolumn=81
 augroup END
 
 augroup filetype_make
@@ -51,13 +53,15 @@ augroup END
 
 augroup filetype_c
     autocmd!
+    autocmd FileType c setlocal colorcolumn=81
     autocmd FileType c setlocal commentstring=\/\/\ %s
     autocmd FileType cpp setlocal commentstring=\/\/\ %s
 augroup END
 
-augroup filetype_bash
+augroup filetype_sh
     autocmd!
-    autocmd FileType bash setlocal commentstring=\#\ %s
+    autocmd FileType sh setlocal colorcolumn=81
+    autocmd FileType sh setlocal commentstring=\#\ %s
 augroup END
 
 augroup filetype_markdown
@@ -148,11 +152,8 @@ set autoindent
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
-" Color column to show explicitely 80 chars
-if exists('+colorcolumn')
-  set colorcolumn=81
-  highlight ColorColumn ctermbg=red
-endif
+" Set color of the column when displayed to darkred
+highlight ColorColumn ctermbg=darkred
 
 " help adjust the default colours for better contrast
 set background=dark
