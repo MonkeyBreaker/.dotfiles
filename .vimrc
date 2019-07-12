@@ -56,6 +56,14 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 let g:vimtex_view_general_viewer = 'okular'
 " let g:vimtex_view_method = 'okular'
 
+" clang_complete
+" https://github.com/xavierd/clang_complete
+Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}
+let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
+" Enable the snippets-support
+let g:clang_snippets = 1
+let g:clang_snippets_engine = 'ultisnips'
+
 " Initialize plugin system
 call plug#end()
 
@@ -110,6 +118,7 @@ augroup filetype_c
     autocmd FileType c setlocal colorcolumn=81
     autocmd FileType c setlocal commentstring=\/\/\ %s
     autocmd FileType cpp setlocal commentstring=\/\/\ %s
+    autocmd FileType cpp setlocal colorcolumn=81
 augroup END
 
 augroup filetype_sh

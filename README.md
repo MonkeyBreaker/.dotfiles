@@ -68,9 +68,9 @@ Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tag
 |---------------------------|---------------------------------------------|
 | cs`<old><new>`            | Change surroundings from `<old>` to `<new>` |
 | ds`<old>`                 | Delete surroundings `<old>`                 |
-| ys`<motion><new>`         | you surround with `<motion>` with `<new>`   |
-| ySS`<new>`                | you surround up & down with `<new>`         |
-| ys`<motion>`f`<func><cr>` | you surround `<motion>` with func()         |
+| ys`<motion><new>`         | You surround with `<motion>` with `<new>`   |
+| ySS`<new>`                | You surround up & down with `<new>`         |
+| ys`<motion>`f`<func><cr>` | You surround `<motion>` with func()         |
 
 ### [commentary.vim](https://github.com/tpope/vim-commentary)
 
@@ -99,4 +99,14 @@ vimtex is a Vim plugin that provides support for writing LaTeX documents.
 | Mapping | Effect                          |
 |---------|---------------------------------|
 | \ll     | Enable/Disable auto compilation |
+
+### [clang_complete](https://github.com/xavierd/clang_complete)
+
+This plugin uses clang for accurately completing C and C++ code.
+
+| Mapping     | Effect                                      |
+|-------------|---------------------------------------------|
+| `<c-x><c-o> | Use omicompletion to show a completion list |
+| `<c-]>`     | Jump to definition                          |
+| `<c-t>`     | Jumps back after a jump to definition       |
 
