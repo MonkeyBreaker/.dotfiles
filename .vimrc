@@ -40,7 +40,10 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " gen_tags.vim
 " https://github.com/jsfaint/gen_tags.vim
-Plug 'jsfaint/gen_tags.vim'
+" Disable this plugin on cygwin
+if !has("win32unix")
+    Plug 'jsfaint/gen_tags.vim'
+endif
 
 " UltiSnips
 " https://github.com/SirVer/ultisnips
@@ -59,7 +62,11 @@ let g:vimtex_view_general_viewer = 'okular'
 " clang_complete
 " https://github.com/xavierd/clang_complete
 Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}
-let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
+if !has("win32unix")
+    let g:clang_library_path='/usr/bin/cygclang-5.0.dll'
+else
+    let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
+endif
 " Enable the snippets-support
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
@@ -318,5 +325,4 @@ vnoremap < <gv
 vnoremap > >gv
 
 " }}}
-
 
