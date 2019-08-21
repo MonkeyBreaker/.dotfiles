@@ -87,6 +87,11 @@ let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
 
+" poppy.vim
+" https://github.com/bounceme/poppy.vim
+Plug 'bounceme/poppy.vim'
+let g:poppy_point_enable = 1
+
 " Initialize plugin system
 call plug#end()
 
@@ -160,6 +165,9 @@ augroup filetype_markdown
     autocmd FileType markdown setlocal foldlevel=3
 augroup END
 
+augroup Poppy
+  au!
+augroup END
 " augroup surround_vim
 "     autocmd!
 "     autocmd FileType     let g:surround_47 = "<% \r %>"
@@ -320,6 +328,10 @@ elseif executable('ag') | set gp=ag\ --nogroup\ --nocolor | endif
 " grep for word under cursor
 nnoremap <Leader># #:sil! gr! "\b<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
 nnoremap <Leader>* #:sil! gr! "\b<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
+
+" Poppy toggle
+nnoremap <silent> <leader>tp :call clearmatches() \| let g:poppy = -get(g:,'poppy',-1) \|
+      \ exe 'au! Poppy CursorMoved *' . (g:poppy > 0 ? ' call PoppyInit()' : '') <cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

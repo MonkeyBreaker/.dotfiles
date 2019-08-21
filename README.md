@@ -124,3 +124,11 @@ This plugin uses clang for accurately completing C and C++ code.
 
  A light and configurable statusline/tabline plugin for Vim
 
+### [poppy.vim](https://github.com/bounceme/poppy.vim)
+
+This plugin gives rainbow parens propagating from the cursor.
+
+| Mapping Normal | Effect       |
+|----------------|--------------|
+| `<leader`tp    | Toggle Poppy |
+
