@@ -16,6 +16,8 @@ leader key : `-`
 | `<leader>`ev   | Edit .vimrc                                |
 | `<leader>`sv   | Source .vimrc                              |
 | `<leader>`8    | Replace the content of the next parathesis |
+| `*, #, g*, g#` | Disable jump (use n/N), highlight word     |
+| `<esc>`        | Disable highlight                          |
 
 ### Insert mode
 

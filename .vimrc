@@ -297,6 +297,14 @@ nnoremap <leader>O :<c-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 " goto midle of line
 nnoremap gm :call cursor(0, len(getline('.'))/2)<CR>
 
+" prevent jump after searching word under cursor with # and *, clear with Escape
+" use 'n' or 'N' to jump to next/before 
+nnoremap <silent> # :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>w?<CR>
+nnoremap <silent> * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>
+nnoremap <silent> g# :let @/ = expand('<cword>')\|set hlsearch<CR>w?<CR>
+nnoremap <silent> g* :let @/ = expand('<cword>')\|set hlsearch<CR>
+nnoremap <silent> <Esc> :noh<CR>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
