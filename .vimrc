@@ -262,6 +262,11 @@ set splitright
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " {{{
 
+" use same keys as insert mode for escape
+" This disable to use the "p" register !
+" allow to expand recusively others <esc> without the "nore"
+nmap <silent> qp <Esc>
+
 " Move lines Up & Down
 nnoremap <c-j> :let @"=col('.')<cr>:m+1<cr>==@"lh
 nnoremap <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh

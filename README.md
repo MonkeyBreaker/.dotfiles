@@ -6,15 +6,16 @@ leader key : `-`
 
 ### Normal mode
 
-| Mapping      | Effect                                     |
-|--------------|--------------------------------------------|
-| `<F7>`       | Toggle spell                               |
-| Ctrl + J     | Move line down                             |
-| Ctrl + K     | Move line up                               |
-| Ctrl + L     | Quick orthography fix                      |
-| `<leader>`ev | Edit .vimrc                                |
-| `<leader>`sv | Source .vimrc                              |
-| `<leader>`8  | Replace the content of the next parathesis |
+| Mapping        | Effect                                     |
+|----------------|--------------------------------------------|
+| qp             | As pressing `esc`                          |
+| `<F7>`         | Toggle spell                               |
+| Ctrl + J       | Move line down                             |
+| Ctrl + K       | Move line up                               |
+| Ctrl + L       | Quick orthography fix                      |
+| `<leader>`ev   | Edit .vimrc                                |
+| `<leader>`sv   | Source .vimrc                              |
+| `<leader>`8    | Replace the content of the next parathesis |
 
 ### Insert mode
 
