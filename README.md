@@ -18,6 +18,8 @@ leader key : `-`
 | `<leader>`8    | Replace the content of the next parathesis |
 | `*, #, g*, g#` | Disable jump (use n/N), highlight word     |
 | `<esc>`        | Disable highlight                          |
+| `[b, ]b`       | Jump to previous/next buffer               |
+| `[B, ]B`       | Jump to first/last buffer                  |
 
 ### Insert mode
 

@@ -305,6 +305,12 @@ nnoremap <silent> g# :let @/ = expand('<cword>')\|set hlsearch<CR>w?<CR>
 nnoremap <silent> g* :let @/ = expand('<cword>')\|set hlsearch<CR>
 nnoremap <silent> <Esc> :noh<CR>
 
+" unimpaired buffer mappings
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
