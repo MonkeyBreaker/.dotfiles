@@ -62,11 +62,12 @@ let g:vimtex_view_general_viewer = 'okular'
 " clang_complete
 " https://github.com/xavierd/clang_complete
 Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}
-if !has("win32unix")
+if has("win32unix")
     let g:clang_library_path='/usr/bin/cygclang-5.0.dll'
 else
     let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
 endif
+
 " Enable the snippets-support
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
