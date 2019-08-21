@@ -6,21 +6,21 @@ leader key : `-`
 
 ### Normal mode
 
-| Mapping        | Effect                                     |
-|----------------|--------------------------------------------|
-| qp             | As pressing `esc`                          |
-| `<F7>`         | Toggle spell                               |
-| Ctrl + J       | Move line down                             |
-| Ctrl + K       | Move line up                               |
-| Ctrl + L       | Quick orthography fix                      |
-| `<leader>`ev   | Edit .vimrc                                |
-| `<leader>`sv   | Source .vimrc                              |
-| `<leader>`8    | Replace the content of the next parathesis |
-| `*, #, g*, g#` | Disable jump (use n/N), highlight word     |
-| `<esc>`        | Disable highlight                          |
-| `[b, ]b`       | Jump to previous/next buffer               |
-| `[B, ]B`       | Jump to first/last buffer                  |
-| `<leader>*,#`  | Grep word under cursor                     |
+| Mapping            | Effect                                     |
+|--------------------|--------------------------------------------|
+| qp                 | As pressing `esc`                          |
+| `<F7>`             | Toggle spell                               |
+| Ctrl + J           | Move line down                             |
+| Ctrl + K           | Move line up                               |
+| Ctrl + L           | Quick orthography fix                      |
+| `<leader>`ev       | Edit .vimrc                                |
+| `<leader>`sv       | Source .vimrc                              |
+| `<leader>`8        | Replace the content of the next parathesis |
+| `*, #, g*, g#`     | Disable jump (use n/N), highlight word     |
+| `<leader><espace>` | Disable highlight                          |
+| `[b, ]b`           | Jump to previous/next buffer               |
+| `[B, ]B`           | Jump to first/last buffer                  |
+| `<leader>*,#`      | Grep word under cursor                     |
 
 ### Insert mode
 
@@ -94,7 +94,7 @@ Comment stuff out.
 
 UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
 
-### [vim-snippets](https://github.com/honza/vim-snippets)
+#### [vim-snippets](https://github.com/honza/vim-snippets)
 
 This repository contains snippets files for various programming languages. Snippets are separated from the engine.
 
@@ -123,3 +123,4 @@ This plugin uses clang for accurately completing C and C++ code.
 ### [lightline.vim](https://github.com/itchyny/lightline.vim)
 
  A light and configurable statusline/tabline plugin for Vim
+

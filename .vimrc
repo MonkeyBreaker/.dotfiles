@@ -305,7 +305,7 @@ nnoremap <silent> # :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>w?<CR
 nnoremap <silent> * :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<CR>
 nnoremap <silent> g# :let @/ = expand('<cword>')\|set hlsearch<CR>w?<CR>
 nnoremap <silent> g* :let @/ = expand('<cword>')\|set hlsearch<CR>
-nnoremap <silent> <Esc> :noh<CR>
+nnoremap <silent> <leader><space> :noh<CR>
 
 " unimpaired buffer mappings
 nnoremap <silent> [b :bprevious<CR>
