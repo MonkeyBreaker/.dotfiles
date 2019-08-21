@@ -110,3 +110,6 @@ This plugin uses clang for accurately completing C and C++ code.
 | `<c-]>`     | Jump to definition                          |
 | `<c-t>`     | Jumps back after a jump to definition       |
 
+### [Buftabline](https://github.com/ap/vim-buftabline)
+
+ A well-integrated, low-configuration buffer list that lives in the tabline

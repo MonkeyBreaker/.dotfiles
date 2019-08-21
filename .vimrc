@@ -71,6 +71,13 @@ endif
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
 
+" Buftabline
+" https://github.com/ap/vim-buftabline
+Plug 'ap/vim-buftabline'
+
+" only if there are at least two buffers
+let g:buftabline_show=1
+
 " Initialize plugin system
 call plug#end()
 
