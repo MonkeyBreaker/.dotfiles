@@ -113,3 +113,7 @@ This plugin uses clang for accurately completing C and C++ code.
 ### [Buftabline](https://github.com/ap/vim-buftabline)
 
  A well-integrated, low-configuration buffer list that lives in the tabline
+
+### [lightline.vim](https://github.com/itchyny/lightline.vim)
+
+ A light and configurable statusline/tabline plugin for Vim

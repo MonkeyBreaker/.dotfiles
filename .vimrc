@@ -78,6 +78,14 @@ Plug 'ap/vim-buftabline'
 " only if there are at least two buffers
 let g:buftabline_show=1
 
+" lightline.vim
+" https://github.com/itchyny/lightline.vim
+Plug 'itchyny/lightline.vim'
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
+
 " Initialize plugin system
 call plug#end()
 
