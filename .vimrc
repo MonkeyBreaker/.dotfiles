@@ -311,6 +311,14 @@ nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
 nnoremap <silent> ]B :blast<CR>
 
+" use Ag/Rg for grep if available
+if executable('rg') | set gp=rg\ -S\ --vimgrep\ --no-heading gfm=%f:%l:%c:%m,%f:%l%m,%f\ \ %l%m|
+elseif executable('ag') | set gp=ag\ --nogroup\ --nocolor | endif
+
+" grep for word under cursor
+nnoremap <Leader># #:sil! gr! "\b<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
+nnoremap <Leader>* #:sil! gr! "\b<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 

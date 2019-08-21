@@ -20,6 +20,7 @@ leader key : `-`
 | `<esc>`        | Disable highlight                          |
 | `[b, ]b`       | Jump to previous/next buffer               |
 | `[B, ]B`       | Jump to first/last buffer                  |
+| `<leader>*,#`  | Grep word under cursor                     |
 
 ### Insert mode
 
