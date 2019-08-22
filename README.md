@@ -110,11 +110,11 @@ vimtex is a Vim plugin that provides support for writing LaTeX documents.
 
 This plugin uses clang for accurately completing C and C++ code.
 
-| Mapping     | Effect                                      |
-|-------------|---------------------------------------------|
-| `<c-x><c-o> | Use omicompletion to show a completion list |
-| `<c-]>`     | Jump to definition                          |
-| `<c-t>`     | Jumps back after a jump to definition       |
+| Mapping      | Effect                                      |
+|--------------|---------------------------------------------|
+| `<c-x><c-o>` | Use omicompletion to show a completion list |
+| `<c-]>`      | Jump to definition                          |
+| `<c-t>`      | Jumps back after a jump to definition       |
 
 ### [Buftabline](https://github.com/ap/vim-buftabline)
 
@@ -130,5 +130,22 @@ This plugin gives rainbow parens propagating from the cursor.
 
 | Mapping Normal | Effect       |
 |----------------|--------------|
-| `<leader`tp    | Toggle Poppy |
+| `<leader>`tp   | Toggle Poppy |
+
+### [fzf.vim](https://github.com/junegunn/fzf.vim)
+
+Things you can do with fzf and Vim.
+
+| Mapping Normal | Effect                                              |
+|----------------|-----------------------------------------------------|
+| :Files         | starts FZF for search in files                      |
+| :GFiles        | starts FZF for search in git files (`git ls-files`) |
+| :GFiles?       | starts FZF for search in git status (`git status`)  |
+| :Commits       | starts FZF for search in commits                    |
+| :Buffers       | starts FZF for search in Buffers                    |
+| :Snippets      | starts FZF for search in Snippets                   |
+| :Maps          | starts FZF for search in Normal mode mappings       |
+| `<c-v>`        | When in fzf, open file in vertical split pane       |
+| `<c-x>`        | When in fzf, open file in horizontal split pane     |
+| `<c-t>`        | When in fzf, open file in new tab                   |
 

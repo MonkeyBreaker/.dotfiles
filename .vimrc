@@ -92,6 +92,21 @@ let g:lightline = {
 Plug 'bounceme/poppy.vim'
 let g:poppy_point_enable = 1
 
+" fzf.vim
+" https://github.com/junegunn/fzf.vim
+Plug '/home/julian/.fzf'
+Plug 'junegunn/fzf.vim'
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
 " Initialize plugin system
 call plug#end()
 
