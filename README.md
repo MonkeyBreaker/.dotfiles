@@ -149,3 +149,6 @@ Things you can do with fzf and Vim.
 | `<c-x>`        | When in fzf, open file in horizontal split pane     |
 | `<c-t>`        | When in fzf, open file in new tab                   |
 
+### [vim-clang-format](https://github.com/rhysd/vim-clang-format)
+
+This plugin formats your code with specific coding style using clang-format.

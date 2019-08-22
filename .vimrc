@@ -107,6 +107,21 @@ let g:fzf_action = {
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
 
+" vim-clang-format
+" https://github.com/rhysd/vim-clang-format
+if executable("clang-format")
+    Plug 'rhysd/vim-clang-format'
+    let g:clang_format#style_options = {
+                \ "IndentWidth" : 4,
+                \ "UseTab" : "Never",
+                \ "BreakBeforeBraces" : "Linux",
+                \ "ColumnLimit" : 80,
+                \ "AccessModifierOffset" : -4,
+                \ "AllowShortIfStatementsOnASingleLine" : "false",
+                \ "AlwaysBreakTemplateDeclarations" : "true",
+                \ "Standard" : "Cpp11"}
+endif
+
 " Initialize plugin system
 call plug#end()
 
