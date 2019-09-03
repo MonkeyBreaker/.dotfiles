@@ -41,7 +41,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 " gen_tags.vim
 " https://github.com/jsfaint/gen_tags.vim
 " Disable this plugin on cygwin
-if !has("win32unix")
+if executable("ctags")
     Plug 'jsfaint/gen_tags.vim'
 endif
 
