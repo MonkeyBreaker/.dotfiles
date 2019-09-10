@@ -84,8 +84,11 @@ let g:buftabline_show=1
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+    \ 'colorscheme': 'wombat',
+    \ 'component': {
+    \   'lineinfo': "%{line('.') . '/' . line('$')}",
+    \ },
+    \ }
 
 " poppy.vim
 " https://github.com/bounceme/poppy.vim
@@ -290,6 +293,9 @@ set scrolloff=2
 set splitbelow
 " more natural split opening
 set splitright
+
+" disable showing into which mode we are 
+set noshowmode
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
