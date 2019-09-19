@@ -201,10 +201,12 @@ augroup END
 augroup Poppy
   au!
 augroup END
-" augroup surround_vim
-"     autocmd!
-"     autocmd FileType     let g:surround_47 = "<% \r %>"
-" augroup END
+
+augroup vimrc
+  autocmd!
+  " Move to the directory each buffer
+  autocmd BufEnter * silent! lcd %:p:h
+augroup END
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -414,7 +416,7 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 
 " replace cursor to original place
 vnoremap < <gv
-vnoremap > >gv
+vnoremap > >gv|
 
 " }}}
 
