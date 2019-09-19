@@ -41,6 +41,16 @@ leader key : `-`
 | `<leader>`tmm | Tableize selected lines                     |
 | gc            | Comment or uncomment the highlighted lines. |
 
+### Command mode
+
+| Mapping  | Effect                                    |
+|----------|-------------------------------------------|
+| Ctrl + a | Same effect as home                       |
+| Ctrl + e | Same effect as end                        |
+| Ctrl + b | Same effect as pressing `h`               |
+| Ctrl + f | Same effect as pressing `l`               |
+| Ctrl + p | Navigate in history command for older one |
+| Ctrl + n | Navigate in history command for newer one |
 
 ## Autocommand
 

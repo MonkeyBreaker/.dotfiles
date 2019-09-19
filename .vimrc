@@ -418,3 +418,19 @@ vnoremap > >gv
 
 " }}}
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" COMMAND
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
+
+" navigation in command line
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+
+" Command line history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
+" }}}
