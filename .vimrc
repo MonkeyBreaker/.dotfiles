@@ -127,19 +127,12 @@ if executable("clang-format")
                 \ "CompactNamespaces" : "false",
                 \ "FixNamespaceComments" : "true",
                 \ "IndentCaseLabels" : "false",
-                \ "IndentGotoLabels" : "true",
-                \ "IndentPPDirectives" : "PPDIS_BeforeHash",
                 \ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
                 \ "MaxEmptyLinesToKeep" : 1,
-                \ "PointerAlignment" : "PAS_Left",
+                \ "PointerAlignment" : "Left",
                 \ "ReflowComments" : "true",
                 \ "SpaceAfterCStyleCast" : "true",
-                \ "SpaceAfterLogicalNot" : "false",
                 \ "SpaceBeforeAssignmentOperators" : "true",
-                \ "SpaceBeforeCpp11BracedList" : "true",
-                \ "SpaceBeforeInheritanceColon" : "true",
-                \ "SpaceBeforeParens" : "SBPO_NonEmptyParentheses",
-                \ "SpaceBeforeRangeBasedForLoopColon" : "false",
                 \ "SpaceInEmptyParentheses" : "false",
                 \ "SpacesBeforeTrailingComments" : 2,
                 \ "SpacesInAngles" : "false",
@@ -150,7 +143,15 @@ if executable("clang-format")
                 \ "AccessModifierOffset" : -4,
                 \ "AllowShortIfStatementsOnASingleLine" : "false",
                 \ "AlwaysBreakTemplateDeclarations" : "true",
-                \ "Standard" : "Cpp11"}
+                \ "Standard" : "Cpp11" }
+    " Unknow parameters ... (Seems that not the last version is used
+                " \ "IndentGotoLabels" : "true",
+                " \ "IndentPPDirectives" : "BeforeHash",
+                " \ "SpaceBeforeParens" : "NonEmptyParentheses",
+                " \ "SpaceBeforeInheritanceColon" : "true",
+                " \ "SpaceBeforeCpp11BracedList" : "true",
+                " \ "SpaceBeforeRangeBasedForLoopColon" : "false",
+                " \ "SpaceAfterLogicalNot" : "false",
 endif
 
 " Initialize plugin system
@@ -447,7 +448,6 @@ vnoremap < <gv
 vnoremap > >gv|
 
 " }}}
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" COMMAND
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
