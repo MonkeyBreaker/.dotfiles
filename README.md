@@ -162,3 +162,7 @@ Things you can do with fzf and Vim.
 ### [vim-clang-format](https://github.com/rhysd/vim-clang-format)
 
 This plugin formats your code with specific coding style using clang-format.
+
+### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
+
+One stop shop for vim colorschemes.

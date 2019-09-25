@@ -144,7 +144,7 @@ if executable("clang-format")
                 \ "AllowShortIfStatementsOnASingleLine" : "false",
                 \ "AlwaysBreakTemplateDeclarations" : "true",
                 \ "Standard" : "Cpp11" }
-    " Unknow parameters ... (Seems that not the last version is used
+    " Unknow parameters ... (Seems that not the last version is used)
                 " \ "IndentGotoLabels" : "true",
                 " \ "IndentPPDirectives" : "BeforeHash",
                 " \ "SpaceBeforeParens" : "NonEmptyParentheses",
@@ -153,6 +153,10 @@ if executable("clang-format")
                 " \ "SpaceBeforeRangeBasedForLoopColon" : "false",
                 " \ "SpaceAfterLogicalNot" : "false",
 endif
+
+" Vim colorschemes
+" https://github.com/flazz/vim-colorschemes
+Plug 'flazz/vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()
@@ -327,6 +331,9 @@ set splitright
 
 " disable showing into which mode we are 
 set noshowmode
+
+" Change default colorscheme
+:colorscheme 256-jungle
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
