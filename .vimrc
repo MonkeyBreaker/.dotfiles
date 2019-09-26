@@ -333,7 +333,7 @@ set splitright
 set noshowmode
 
 " Change default colorscheme
-:colorscheme monkey
+:silent! colorscheme monkey
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
