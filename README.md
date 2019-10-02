@@ -165,4 +165,6 @@ This plugin formats your code with specific coding style using clang-format.
 
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
+**DISABLED** Because I created my custom coloscheme (in forlder colorscheme/monkey.vim)
 One stop shop for vim colorschemes.
+

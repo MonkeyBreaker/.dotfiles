@@ -156,7 +156,8 @@ endif
 
 " Vim colorschemes
 " https://github.com/flazz/vim-colorschemes
-Plug 'flazz/vim-colorschemes'
+" Disable because I already created my colorscheme
+" Plug 'flazz/vim-colorschemes'
 
 " Initialize plugin system
 call plug#end()

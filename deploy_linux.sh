@@ -1,14 +1,15 @@
 #!/bin/sh
 
-VIM_COLORSCHEME_FOLDER=~/.vim/plugged/vim-colorschemes/colors/
+VIM_COLORSCHEME_FOLDER=~/.vim/colors/
 MONKEY_COLORSCHEME=monkey.vim
 VIM_CUSTOMFOLDER=$(pwd)
 
 # Deploy monkey colorscheme 
-if [ -d "$VIM_COLORSCHEME_FOLDER" ]; then
-    if [ ! -f "$VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME" ]; then
-        ln -s $VIM_CUSTOMFOLDER/colorscheme/$MONKEY_COLORSCHEME $VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME
-    fi
+if [ ! -d "$VIM_COLORSCHEME_FOLDER" ]; then
+    mkdir -p $VIM_COLORSCHEME_FOLDER
+fi
+if [ ! -f "$VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME" ]; then
+    ln -s $VIM_CUSTOMFOLDER/colorscheme/$MONKEY_COLORSCHEME $VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME
 fi
 
 VIM_AFTER_PLUGIN_FOLDER=~/.vim/after/syntax/
