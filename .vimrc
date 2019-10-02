@@ -231,6 +231,14 @@ augroup filetype_markdown
     autocmd FileType markdown setlocal foldlevel=3
 augroup END
 
+let ftToIgnore = ['latex', 'tex']
+augroup filetype_tex
+    autocmd!
+    " autocmd FileType tex highlight MatchParen ctermfg=None ctermbg=237 cterm=None
+    autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | highlight MatchParen ctermfg=None ctermbg=cyan cterm=None | endif
+    autocmd BufEnter * if index(ftToIgnore, &ft) >= 0 | highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
+augroup END
+
 augroup Poppy
   au!
 augroup END

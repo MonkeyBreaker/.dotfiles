@@ -26,6 +26,7 @@ hi Error	    ctermfg=None        ctermbg=196         cterm=Bold
 hi Special	    ctermfg=172         ctermbg=None        cterm=Bold
 hi Ignore       ctermfg=221         ctermbg=None        cterm=Bold
 hi Underline    ctermfg=147         ctermbg=None        cterm=Italic
+" hi MatchParen   ctermfg=None        ctermbg=237         cterm=None
 
 hi FoldColumn	ctermfg=132         ctermbg=None        cterm=None
 hi Folded       ctermfg=132         ctermbg=None        cterm=Bold
