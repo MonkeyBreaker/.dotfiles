@@ -3,6 +3,16 @@
 VIM_COLORSCHEME_FOLDER=~/.vim/colors/
 MONKEY_COLORSCHEME=monkey.vim
 VIM_CUSTOMFOLDER=$(pwd)
+VIMRC_FILE=.vimrc
+
+# Check and backup for existing .vimrc file
+if [ ! -L ~/"$VIMRC_FILE" ]; then
+    if [ -f ~/"$VIMRC_FILE" ]; then
+        echo "Backuping original $VIMRC_FILE, old condiguration will be found in ~/$VIMRC_FILE.old"
+        mv ~/$VIMRC_FILE ~/$VIMRC_FILE.old
+    fi
+    ln -s $VIM_CUSTOMFOLDER/$VIMRC_FILE ~/
+fi
 
 # Deploy monkey colorscheme 
 if [ ! -d "$VIM_COLORSCHEME_FOLDER" ]; then
