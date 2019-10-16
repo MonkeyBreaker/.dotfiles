@@ -159,6 +159,10 @@ endif
 " Disable because I already created my colorscheme
 " Plug 'flazz/vim-colorschemes'
 
+" vim-cpp-modern: Enhanced C and C++ syntax highlighting
+" https://github.com/bfrg/vim-cpp-modern
+Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}
+
 " Initialize plugin system
 call plug#end()
 
