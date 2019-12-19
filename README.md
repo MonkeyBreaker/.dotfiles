@@ -163,6 +163,10 @@ Things you can do with fzf and Vim.
 
 This plugin formats your code with specific coding style using clang-format.
 
+### [Asynchronous Lint Engine](https://github.com/dense-analysis/ale)
+
+ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder colorscheme/monkey.vim)

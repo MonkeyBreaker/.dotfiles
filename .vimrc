@@ -154,6 +154,10 @@ if executable("clang-format")
                 " \ "SpaceAfterLogicalNot" : "false",
 endif
 
+" Asynchronous Lint Engine
+" https://github.com/dense-analysis/ale
+Plug 'dense-analysis/ale'
+
 " Vim colorschemes
 " https://github.com/flazz/vim-colorschemes
 " Disable because I already created my colorscheme
@@ -292,15 +296,15 @@ set number
 set backspace=indent,eol,start
 
 " Status line custom configuration
-set ls=2 "Always show status line"
-set statusline=%f 		" Path to the file
-set statusline+=\ -\ 		" Separator
-set statusline+=FileType:	" Label
-set statusline+=%y 		" Filetype of the file
-set statusline+=%= 		" Switch to the right side
-set statusline+=%l 		" Current line
-set statusline+=/ 		" Separator
-set statusline+=%L 		" Total lines
+set ls=2                  " Always show status line"
+set statusline=%f         " Path to the file
+set statusline+=\ -\      " Separator
+set statusline+=FileType: " Label
+set statusline+=%y        " Filetype of the file
+set statusline+=%=        " Switch to the right side
+set statusline+=%l        " Current line
+set statusline+=/         " Separator
+set statusline+=%L        " Total lines
 
 " Finding files
 " Search down into subfolders
