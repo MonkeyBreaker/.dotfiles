@@ -167,6 +167,10 @@ Plug 'dense-analysis/ale'
 " https://github.com/bfrg/vim-cpp-modern
 Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}
 
+" vim-easy-align
+" A simple, easy-to-use Vim alignment plugin.
+Plug 'junegunn/vim-easy-align'
+
 " Initialize plugin system
 call plug#end()
 
@@ -424,6 +428,9 @@ nnoremap <Leader>* #:sil! gr! "\b<C-R><C-W>\b"<CR>:cw<CR>:redr!<CR>
 nnoremap <silent> <leader>tp :call clearmatches() \| let g:poppy = -get(g:,'poppy',-1) \|
       \ exe 'au! Poppy CursorMoved *' . (g:poppy > 0 ? ' call PoppyInit()' : '') <cr>
 
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" INSERT 
@@ -470,6 +477,9 @@ vnoremap <c-k> :m '<-2<CR>gv=gv
 " replace cursor to original place
 vnoremap < <gv
 vnoremap > >gv|
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

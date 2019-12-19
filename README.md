@@ -167,6 +167,20 @@ This plugin formats your code with specific coding style using clang-format.
 
 ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
 
+### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
+
+A simple, easy-to-use Vim alignment plugin.
+Mapped for normal and visual mode.
+
+| Mapping | Effect                  |
+|---------|-------------------------|
+| ga      | Start EasyAlign command |
+
+```
+gaip= => inner paragraph align around =
+vipga= => visual-select inner paragraph align around =
+```
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder colorscheme/monkey.vim)
