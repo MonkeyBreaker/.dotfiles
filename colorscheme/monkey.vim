@@ -45,3 +45,8 @@ hi VertSplit    ctermfg=239         ctermbg=239         cterm=None
 hi TabLine      ctermfg=245         ctermbg=239         cterm=None
 hi TabLineFill  ctermfg=239         ctermbg=239
 hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
+
+hi DiffAdd      ctermfg=black         ctermbg=green         cterm=None
+hi DiffChange   ctermfg=black         ctermbg=yellow         cterm=None
+hi DiffDelete   ctermfg=black         ctermbg=red         cterm=None
+hi DiffText     ctermfg=blue         ctermbg=yellow         cterm=None
