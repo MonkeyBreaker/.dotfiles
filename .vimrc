@@ -417,10 +417,10 @@ nnoremap <silent> g* :let @/ = expand('<cword>')\|set hlsearch<CR>
 nnoremap <silent> <leader><space> :noh<CR>
 
 " unimpaired buffer mappings
-nnoremap <silent> [b :bprevious<CR>
-nnoremap <silent> ]b :bnext<CR>
-nnoremap <silent> [B :bfirst<CR>
-nnoremap <silent> ]B :blast<CR>
+nnoremap <silent> [b :bprevious!<CR>
+nnoremap <silent> ]b :bnext!<CR>
+nnoremap <silent> [B :bfirst!<CR>
+nnoremap <silent> ]B :blast!<CR>
 
 " use Ag/Rg for grep if available
 if executable('rg') | set gp=rg\ -S\ --vimgrep\ --no-heading gfm=%f:%l:%c:%m,%f:%l%m,%f\ \ %l%m|
