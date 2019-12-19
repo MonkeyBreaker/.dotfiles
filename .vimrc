@@ -171,6 +171,12 @@ Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}
 " A simple, easy-to-use Vim alignment plugin.
 Plug 'junegunn/vim-easy-align'
 
+" Vim Tmux Navigator
+" https://github.com/christoomey/vim-tmux-navigator
+Plug 'christoomey/vim-tmux-navigator'
+
+let g:tmux_navigator_no_mappings = 1
+
 " Initialize plugin system
 call plug#end()
 
@@ -430,6 +436,13 @@ nnoremap <silent> <leader>tp :call clearmatches() \| let g:poppy = -get(g:,'popp
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Remap tmux panes navigation
+nnoremap <silent> <c-w>h :TmuxNavigateLeft<cr>
+nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
+nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
+nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
+nnoremap <silent> <c-w>w :TmuxNavigatePrevious<cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

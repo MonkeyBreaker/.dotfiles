@@ -181,6 +181,18 @@ gaip= => inner paragraph align around =
 vipga= => visual-select inner paragraph align around =
 ```
 
+### [vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator)
+
+Seamless navigation between tmux panes and vim splits.
+
+| Mapping   | Effect                      |
+|-----------|-----------------------------|
+| `Ctrl-w`h | move to left pane/split     |
+| `Ctrl-w`j | move to down pane/split     |
+| `Ctrl-w`k | move to up pane/split       |
+| `Ctrl-w`l | move to right pane/split    |
+| `Ctrl-w`w | move to previous pane/split |
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder colorscheme/monkey.vim)
