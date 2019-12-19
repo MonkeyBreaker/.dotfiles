@@ -10,7 +10,7 @@ set nocompatible
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" PLUGINS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" {{{
+" Pluggins config {{{1 "
 
 " install vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -19,49 +19,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" initialise vim-plug
-call plug#begin('~/.vim/plugged')
-
-" surround.vim
-" https://github.com/tpope/vim-surround
-Plug 'tpope/vim-surround'
-
-" commentary.vim
-" https://github.com/tpope/vim-commentary
-Plug 'tpope/vim-commentary'
-
-" VIM Table Mode
-" https://github.com/dhruvasagar/vim-table-mode
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-
-" VIM Python Mode
-" https://github.com/python-mode/python-mode
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
-
-" gen_tags.vim
-" https://github.com/jsfaint/gen_tags.vim
-" Disable this plugin on cygwin
-if executable("ctags")
-    Plug 'jsfaint/gen_tags.vim'
+"" gen_tags
+if executable("global")
+    let g:gen_tags#gtags_default_map=1
 endif
 
-" UltiSnips
-" https://github.com/SirVer/ultisnips
-Plug 'SirVer/ultisnips'
-
-" snipMate & UltiSnip Snippets
-" https://github.com/honza/vim-snippets
-Plug 'honza/vim-snippets'
-
-" vimtex
-" https://github.com/lervag/vimtex
-Plug 'lervag/vimtex', { 'for': 'tex' }
-let g:vimtex_view_general_viewer = 'okular'
-" let g:vimtex_view_method = 'okular'
-
-" clang_complete
-" https://github.com/xavierd/clang_complete
-Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}
+"" clang_complete
 if has("win32unix")
     let g:clang_library_path='/usr/bin/cygclang-5.0.dll'
 else
@@ -72,115 +35,126 @@ endif
 let g:clang_snippets = 1
 let g:clang_snippets_engine = 'ultisnips'
 
-" Buftabline
-" https://github.com/ap/vim-buftabline
-Plug 'ap/vim-buftabline'
+"" vimtex
+let g:vimtex_view_general_viewer = 'okular'
+" let g:vimtex_view_method = 'okular'
 
+"" lightline
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'component': {
+            \   'lineinfo': "%{line('.') . '/' . line('$')}",
+            \ },
+            \ }
+
+"" buftabline
 " only if there are at least two buffers
 let g:buftabline_show=1
 
-" lightline.vim
-" https://github.com/itchyny/lightline.vim
-Plug 'itchyny/lightline.vim'
-
-let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ 'component': {
-    \   'lineinfo': "%{line('.') . '/' . line('$')}",
-    \ },
-    \ }
-
-" poppy.vim
-" https://github.com/bounceme/poppy.vim
-Plug 'bounceme/poppy.vim'
-let g:poppy_point_enable = 1
-
-" fzf.vim
-" https://github.com/junegunn/fzf.vim
-Plug '/home/julian/.fzf'
-Plug 'junegunn/fzf.vim'
-
+"" fzf
 " This is the default extra key bindings
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
+            \ 'ctrl-t': 'tab split',
+            \ 'ctrl-x': 'split',
+            \ 'ctrl-v': 'vsplit' }
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
 
-" vim-clang-format
-" https://github.com/rhysd/vim-clang-format
+"" Poppy
+let g:poppy_point_enable = 1
+
+"" clang-format
+let g:clang_format#detect_style_file=0
+let g:clang_format#code_style = 'llvm'
+let g:clang_format#style_options = {
+            \ "IndentWidth" : 4,
+            \ "BinPackArguments" : "true",
+            \ "BinPackParameters" : "true",
+            \ "BreakBeforeBinaryOperators" : "None",
+            \ "BreakBeforeBraces" : "Linux",
+            \ "BreakBeforeTernaryOperators" : "true",
+            \ "ColumnLimit" : 80,
+            \ "CompactNamespaces" : "false",
+            \ "FixNamespaceComments" : "true",
+            \ "IndentCaseLabels" : "false",
+            \ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
+            \ "MaxEmptyLinesToKeep" : 1,
+            \ "PointerAlignment" : "Left",
+            \ "ReflowComments" : "true",
+            \ "SpaceAfterCStyleCast" : "true",
+            \ "SpaceBeforeAssignmentOperators" : "true",
+            \ "SpaceInEmptyParentheses" : "false",
+            \ "SpacesBeforeTrailingComments" : 2,
+            \ "SpacesInAngles" : "false",
+            \ "SpacesInCStyleCastParentheses" : "false",
+            \ "SpacesInParentheses" : "false",
+            \ "TabWidth" : 4,
+            \ "UseTab" : "Never",
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "Cpp11" }
+" Unknow parameters ... (Seems that not the last version is used)
+" \ "IndentGotoLabels" : "true",
+" \ "IndentPPDirectives" : "BeforeHash",
+" \ "SpaceBeforeParens" : "NonEmptyParentheses",
+" \ "SpaceBeforeInheritanceColon" : "true",
+" \ "SpaceBeforeCpp11BracedList" : "true",
+" \ "SpaceBeforeRangeBasedForLoopColon" : "false",
+" \ "SpaceAfterLogicalNot" : "false",
+
+"" tmux navigator
+let g:tmux_navigator_no_mappings = 1
+
+" 1}}} "
+" vim-plug {{{ "
+" initialise vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Features
+Plug '~/.fzf'                                                            " fzf.vim
+Plug 'junegunn/fzf.vim'
+Plug 'christoomey/vim-tmux-navigator'                                    " Vim Tmux Navigator
+Plug 'SirVer/ultisnips'                                                  " UltiSnips
+Plug 'honza/vim-snippets'                                                " snipMate & UltiSnip Snippets
+
+
+" Language
+Plug 'dense-analysis/ale'                                                " Asynchronous Lint Engine
+Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}                       " vim-cpp-modern: Enhanced C and C++ syntax highlighting
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }                 " VIM Table Mode
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " VIM Python Mode
+Plug 'lervag/vimtex', { 'for': 'tex' }                                   " vimtex
+Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang_complete
 if executable("clang-format")
-    Plug 'rhysd/vim-clang-format'
-    let g:clang_format#detect_style_file=0
-    let g:clang_format#code_style = 'llvm'
-    let g:clang_format#style_options = {
-                \ "IndentWidth" : 4,
-                \ "BinPackArguments" : "true",
-                \ "BinPackParameters" : "true",
-                \ "BreakBeforeBinaryOperators" : "None",
-                \ "BreakBeforeBraces" : "Linux",
-                \ "BreakBeforeTernaryOperators" : "true",
-                \ "ColumnLimit" : 80,
-                \ "CompactNamespaces" : "false",
-                \ "FixNamespaceComments" : "true",
-                \ "IndentCaseLabels" : "false",
-                \ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
-                \ "MaxEmptyLinesToKeep" : 1,
-                \ "PointerAlignment" : "Left",
-                \ "ReflowComments" : "true",
-                \ "SpaceAfterCStyleCast" : "true",
-                \ "SpaceBeforeAssignmentOperators" : "true",
-                \ "SpaceInEmptyParentheses" : "false",
-                \ "SpacesBeforeTrailingComments" : 2,
-                \ "SpacesInAngles" : "false",
-                \ "SpacesInCStyleCastParentheses" : "false",
-                \ "SpacesInParentheses" : "false",
-                \ "TabWidth" : 4,
-                \ "UseTab" : "Never",
-                \ "AccessModifierOffset" : -4,
-                \ "AllowShortIfStatementsOnASingleLine" : "false",
-                \ "AlwaysBreakTemplateDeclarations" : "true",
-                \ "Standard" : "Cpp11" }
-    " Unknow parameters ... (Seems that not the last version is used)
-                " \ "IndentGotoLabels" : "true",
-                " \ "IndentPPDirectives" : "BeforeHash",
-                " \ "SpaceBeforeParens" : "NonEmptyParentheses",
-                " \ "SpaceBeforeInheritanceColon" : "true",
-                " \ "SpaceBeforeCpp11BracedList" : "true",
-                " \ "SpaceBeforeRangeBasedForLoopColon" : "false",
-                " \ "SpaceAfterLogicalNot" : "false",
+    Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
 
-" Asynchronous Lint Engine
-" https://github.com/dense-analysis/ale
-Plug 'dense-analysis/ale'
 
-" Vim colorschemes
-" https://github.com/flazz/vim-colorschemes
+" tpope
+Plug 'tpope/vim-surround'                                                " surround.vim
+Plug 'tpope/vim-commentary'                                              " commentary.vim
+
+
+" Small utilities
+Plug 'junegunn/vim-easy-align'                                           " vim-easy-align
+if executable("ctags") || executable("global")
+    Plug 'jsfaint/gen_tags.vim'                                          " gen_tags.vim
+endif
+
+
+" Appearance
+Plug 'ap/vim-buftabline'                                                 " Buftabline
+Plug 'itchyny/lightline.vim'                                             " lightline.vim
+Plug 'bounceme/poppy.vim'                                                " poppy.vim
+
 " Disable because I already created my colorscheme
-" Plug 'flazz/vim-colorschemes'
-
-" vim-cpp-modern: Enhanced C and C++ syntax highlighting
-" https://github.com/bfrg/vim-cpp-modern
-Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}
-
-" vim-easy-align
-" A simple, easy-to-use Vim alignment plugin.
-Plug 'junegunn/vim-easy-align'
-
-" Vim Tmux Navigator
-" https://github.com/christoomey/vim-tmux-navigator
-Plug 'christoomey/vim-tmux-navigator'
-
-let g:tmux_navigator_no_mappings = 1
+" Plug 'flazz/vim-colorschemes'  " Vim colorschemes
 
 " Initialize plugin system
 call plug#end()
-
-" }}}
+" }}} vim-plug "
 
 " Enable filetype detection, plugin and indentation enabled
 filetype plugin indent on
@@ -210,12 +184,6 @@ augroup filetype_python
     autocmd FileType python setlocal commentstring=\#\ %s
     " By default python-mode use python2, enable python3 by default
     autocmd BufEnter,BufRead *.py let g:pymode_python = 'python3'
-" 	autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
-" 	autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-" 	autocmd FileType python set foldmethod=indent foldlevel=99
-"     " enable all Python syntax highlighting features
-" 	autocmd FileType python let python_highlight_all = 1
-" 	autocmd BufNewFile *.py 0r skeleton/skeleton.py
     autocmd FileType python setlocal colorcolumn=81
 augroup END
 
@@ -272,9 +240,7 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VARIABLES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if 0 == exists("commentstring")
-    setlocal commentstring=\ %s
-endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " abbreviations in insert mode only
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

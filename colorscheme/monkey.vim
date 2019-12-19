@@ -5,6 +5,10 @@ set background=dark
 set t_Co=256
 let g:colors_name="monkey"
 
+" 24-bit color support
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 hi Normal	    ctermfg=253         ctermbg=234         cterm=None
 hi Cursor       ctermfg=253         ctermbg=57          cterm=None
@@ -46,7 +50,7 @@ hi TabLine      ctermfg=245         ctermbg=239         cterm=None
 hi TabLineFill  ctermfg=239         ctermbg=239
 hi TabLineSel   ctermfg=104         ctermbg=236         cterm=Bold
 
-hi DiffAdd      ctermfg=black         ctermbg=green         cterm=None
-hi DiffChange   ctermfg=black         ctermbg=yellow         cterm=None
-hi DiffDelete   ctermfg=black         ctermbg=red         cterm=None
-hi DiffText     ctermfg=blue         ctermbg=yellow         cterm=None
+hi DiffAdd      ctermfg=black       ctermbg=green       cterm=None
+hi DiffChange   ctermfg=black       ctermbg=yellow      cterm=None
+hi DiffDelete   ctermfg=black       ctermbg=red         cterm=None
+hi DiffText     ctermfg=blue        ctermbg=yellow      cterm=None

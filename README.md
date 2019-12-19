@@ -60,7 +60,8 @@ leader key : `-`
 
 ### [VIM Table Mode](https://github.com/dhruvasagar/vim-table-mode)
 
-Currently this mode is only available when editing markdown files. This restriction can be easily changed in the `.vimrc`.
+Currently this mode is only available when editing markdown files. This
+restriction can be easily changed in the `.vimrc`.
 
 #### Normal mode
 
@@ -72,11 +73,14 @@ Currently this mode is only available when editing markdown files. This restrict
 
 ### [VIM Python Mode](https://github.com/python-mode/python-mode)
 
-A Python IDE for Vim, read help (:help pymode) or see the [wiki](https://github.com/python-mode/python-mode/wiki) for more information.
+A Python IDE for Vim, read help (:help pymode) or see the
+[wiki](https://github.com/python-mode/python-mode/wiki) for more information.
 
 ### [surround.vim](https://github.com/tpope/vim-surround)
 
-Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML
+tags, and more. The plugin provides mappings to easily delete, change and add
+such surroundings in pairs.
 
 #### Normal mode
 
@@ -102,11 +106,13 @@ Comment stuff out.
 
 ### [UltiSnips](https://github.com/SirVer/ultisnips)
 
-UltiSnips is the ultimate solution for snippets in Vim. It has tons of features and is very fast.
+UltiSnips is the ultimate solution for snippets in Vim. It has tons of features
+and is very fast.
 
 #### [vim-snippets](https://github.com/honza/vim-snippets)
 
-This repository contains snippets files for various programming languages. Snippets are separated from the engine.
+This repository contains snippets files for various programming languages.
+Snippets are separated from the engine.
 
 ### [vimtex](https://github.com/lervag/vimtex)
 
@@ -116,15 +122,61 @@ vimtex is a Vim plugin that provides support for writing LaTeX documents.
 |---------|---------------------------------|
 | \ll     | Enable/Disable auto compilation |
 
+### [vim-cpp-modern](https://github.com/bfrg/vim-cpp-modern)
+
+Keyword and regex-based syntax highlighting for C and C++11/14/17/20 in Vim.
+
 ### [clang_complete](https://github.com/xavierd/clang_complete)
 
 This plugin uses clang for accurately completing C and C++ code.
+
+#### Insert mode
 
 | Mapping      | Effect                                      |
 |--------------|---------------------------------------------|
 | `<c-x><c-o>` | Use omicompletion to show a completion list |
 | `<c-]>`      | Jump to definition                          |
 | `<c-t>`      | Jumps back after a jump to definition       |
+
+### [gen_tags.vim](https://github.com/jsfaint/gen_tags.vim)
+
+Async plugin for vim and neovim to ease the use of ctags/gtags.
+
+#### Difference between ctags and gtags
+
+  GNU global(aka gtags) is more powerful than ctags, which support definition,
+  reference, calling, called, include, string and etc, but ctags only support
+  definition.
+
+  As we can use GNU global why did I still support ctags in this plugin?</br>
+  That's because GNU global only support 6 languages (C, C++, Yacc, Java, PHP4
+  and assembly) natively.</br> ctags can support more languages(41 showed on
+  the website).
+
+  Actually global can support more languages with Pygments plugin parser, for
+  more details please refer `PLUGIN_HOWTO.pygments` in global document.
+
+#### Command mode
+
+| Mapping     | Effect                  |
+|-------------|-------------------------|
+| :GenCtags   | Generate ctags database |
+| :GenGTAGS   | Generate GTAGS          |
+| :ClearCtags | Remove tags files.      |
+| :ClearGTAGS | Remove GTAGS files      |
+
+#### Insert mode
+
+| Mapping    | Effect                               |
+|------------|--------------------------------------|
+| `<c-\>`  c | Find functions calling this function |
+| `<c-\>`  d | Find functions calling this function |
+| `<c-\>`  e | Find functions calling this function |
+| `<c-\>`  f | Find functions calling this function |
+| `<c-\>`  g | Find functions calling this function |
+| `<c-\>`  i | Find functions calling this function |
+| `<c-\>`  s | Find functions calling this function |
+| `<c-\>`  t | Find functions calling this function |
 
 ### [Buftabline](https://github.com/ap/vim-buftabline)
 
@@ -146,18 +198,25 @@ This plugin gives rainbow parens propagating from the cursor.
 
 Things you can do with fzf and Vim.
 
-| Mapping Normal | Effect                                              |
-|----------------|-----------------------------------------------------|
-| :Files         | starts FZF for search in files                      |
-| :GFiles        | starts FZF for search in git files (`git ls-files`) |
-| :GFiles?       | starts FZF for search in git status (`git status`)  |
-| :Commits       | starts FZF for search in commits                    |
-| :Buffers       | starts FZF for search in Buffers                    |
-| :Snippets      | starts FZF for search in Snippets                   |
-| :Maps          | starts FZF for search in Normal mode mappings       |
-| `<c-v>`        | When in fzf, open file in vertical split pane       |
-| `<c-x>`        | When in fzf, open file in horizontal split pane     |
-| `<c-t>`        | When in fzf, open file in new tab                   |
+#### Command mode
+
+| Mapping   | Effect                                              |
+|-----------|-----------------------------------------------------|
+| :Files    | starts FZF for search in files                      |
+| :GFiles   | starts FZF for search in git files (`git ls-files`) |
+| :GFiles?  | starts FZF for search in git status (`git status`)  |
+| :Commits  | starts FZF for search in commits                    |
+| :Buffers  | starts FZF for search in Buffers                    |
+| :Snippets | starts FZF for search in Snippets                   |
+| :Maps     | starts FZF for search in Normal mode mappings       |
+
+#### Normal mode
+
+| Mapping | Effect                                          |
+|---------|-------------------------------------------------|
+| `<c-v>` | When in fzf, open file in vertical split pane   |
+| `<c-x>` | When in fzf, open file in horizontal split pane |
+| `<c-t>` | When in fzf, open file in new tab               |
 
 ### [vim-clang-format](https://github.com/rhysd/vim-clang-format)
 
@@ -165,7 +224,9 @@ This plugin formats your code with specific coding style using clang-format.
 
 ### [Asynchronous Lint Engine](https://github.com/dense-analysis/ale)
 
-ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
+ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking
+and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files,
+and acts as a Vim Language Server Protocol client.
 
 ### [vim-easy-align](https://github.com/junegunn/vim-easy-align)
 
@@ -185,6 +246,8 @@ vipga= => visual-select inner paragraph align around =
 
 Seamless navigation between tmux panes and vim splits.
 
+#### Normal mode
+
 | Mapping   | Effect                      |
 |-----------|-----------------------------|
 | `Ctrl-w`h | move to left pane/split     |
@@ -195,6 +258,6 @@ Seamless navigation between tmux panes and vim splits.
 
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
-**DISABLED** Because I created my custom coloscheme (in forlder colorscheme/monkey.vim)
-One stop shop for vim colorschemes.
+**DISABLED** Because I created my custom coloscheme (in forlder
+colorscheme/monkey.vim) One stop shop for vim colorschemes.
 
