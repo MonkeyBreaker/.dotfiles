@@ -142,12 +142,14 @@ Plug 'junegunn/vim-easy-align'                                           " vim-e
 if executable("ctags") || executable("global")
     Plug 'jsfaint/gen_tags.vim'                                          " gen_tags.vim
 endif
+Plug 'AndrewRadev/splitjoin.vim'                                         " simplifies the transition between multiline and single-line
 
 
 " Appearance
 Plug 'ap/vim-buftabline'                                                 " Buftabline
 Plug 'itchyny/lightline.vim'                                             " lightline.vim
 Plug 'bounceme/poppy.vim'                                                " poppy.vim
+Plug 'psliwka/vim-smoothie'                                              " Smooth scrolling for Vim done right
 
 " Disable because I already created my colorscheme
 " Plug 'flazz/vim-colorschemes'  " Vim colorschemes

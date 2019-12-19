@@ -256,6 +256,24 @@ Seamless navigation between tmux panes and vim splits.
 | `Ctrl-w`l | move to right pane/split    |
 | `Ctrl-w`w | move to previous pane/split |
 
+### [vim-smoothie](https://github.com/psliwka/vim-smoothie)
+
+This (neo)vim plugin makes scrolling nice and smooth. Find yourself completely
+lost every time you press Ctrl-D or Ctrl-F? You might want to give vim-smoothie
+a try!
+
+### [splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim)
+
+This plugin is meant to simplify a task I've found too common in my workflow:
+switching between a single-line statement and a multi-line one.
+
+#### Normal mode
+
+| Mapping | Effect                                                                                               |
+|---------|------------------------------------------------------------------------------------------------------|
+| gS      | split a one-liner into multiple lines                                                                |
+| gJ      | <br>(with the cursor on the first line of a block) <br>to join a block into a single-line statement. |
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder
