@@ -107,6 +107,11 @@ let g:clang_format#style_options = {
 "" tmux navigator
 let g:tmux_navigator_no_mappings = 1
 
+"" grayout.vim
+" Set the compiler's working directory to use .grayout.conf's directory
+let g:grayout_workingdir = 1
+let g:grayout_confirm    = 0
+
 " 1}}} "
 " vim-plug {{{ "
 " initialise vim-plug
@@ -130,6 +135,7 @@ Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang
 if executable("clang-format")
     Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
+Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp']}                          " allows to gray unused code
 
 
 " tpope
@@ -226,6 +232,12 @@ augroup filetype_tex
     " autocmd FileType tex highlight MatchParen ctermfg=None ctermbg=237 cterm=None
     autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | highlight MatchParen ctermfg=None ctermbg=cyan cterm=None | endif
     autocmd BufEnter * if index(ftToIgnore, &ft) >= 0 | highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
+augroup END
+
+augroup grayout
+    autocmd!
+    autocmd FileType c,cpp
+                \ autocmd BufEnter * GrayoutUpdate
 augroup END
 
 augroup Poppy

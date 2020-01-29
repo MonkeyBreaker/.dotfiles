@@ -274,6 +274,11 @@ switching between a single-line statement and a multi-line one.
 | gS      | split a one-liner into multiple lines                                                                |
 | gJ      | <br>(with the cursor on the first line of a block) <br>to join a block into a single-line statement. |
 
+### [grayout.vim](https://github.com/mphe/grayout.vim)
+
+grayout.vim is a simple plugin that grays out inactive preprocessor blocks.
+Relies on `.grayout.conf` configuration files at the root of the project to efficiently highlight defines macros.
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder

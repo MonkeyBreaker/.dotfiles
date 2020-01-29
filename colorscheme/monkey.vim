@@ -54,3 +54,5 @@ hi DiffAdd      ctermfg=black       ctermbg=green       cterm=None
 hi DiffChange   ctermfg=black       ctermbg=yellow      cterm=None
 hi DiffDelete   ctermfg=black       ctermbg=red         cterm=None
 hi DiffText     ctermfg=blue        ctermbg=yellow      cterm=None
+
+hi PreprocessorGrayout ctermfg=darkgray    ctermbg=234         cterm=None
