@@ -107,6 +107,10 @@ let g:clang_format#style_options = {
 "" tmux navigator
 let g:tmux_navigator_no_mappings = 1
 
+"" vim-snippets
+" Comments are in GOOGLE style
+let g:ultisnips_python_style = 0x4
+
 "" grayout.vim
 " Set the compiler's working directory to use .grayout.conf's directory
 let g:grayout_workingdir = 1
