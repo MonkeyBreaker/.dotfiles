@@ -233,7 +233,6 @@ augroup END
 let ftToIgnore = ['latex', 'tex']
 augroup filetype_tex
     autocmd!
-    " autocmd FileType tex highlight MatchParen ctermfg=None ctermbg=237 cterm=None
     autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | highlight MatchParen ctermfg=None ctermbg=cyan cterm=None | endif
     autocmd BufEnter * if index(ftToIgnore, &ft) >= 0 | highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
 augroup END
@@ -245,13 +244,13 @@ augroup grayout
 augroup END
 
 augroup Poppy
-  au!
+    au!
 augroup END
 
 augroup vimrc
-  autocmd!
-  " Move to the directory each buffer
-  autocmd BufEnter * silent! lcd %:p:h
+    autocmd!
+    " Move to the directory each buffer
+    autocmd BufEnter * silent! lcd %:p:h
 augroup END
 
 " }}}
