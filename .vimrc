@@ -178,25 +178,33 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " za for using folding {{{
 
+let ftNoColorColum = ['vim', 'markdown', 'txt', 'tex'. 'latex']
+augroup ft_SetColorColumn
+    " this one is which you're most likely to use?
+    autocmd!
+    autocmd BufEnter * if index(ftNoColorColum, &ft) < 0 |
+                \ call SetColorColumn(1) | else |
+                \ call SetColorColumn(0) | endif
+augroup end
+
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
     autocmd FileType vim setlocal commentstring=\"\ %s
-    autocmd FileType vim setlocal colorcolumn=0
 augroup END
 
 augroup spelling
     autocmd!
     autocmd VimEnter * setlocal spelllang=en_gb
+    autocmd FileType txt, markdown, tex, latex setlocal spelllang+=fr
 augroup END
 
 " See https://gist.github.com/eduardocereto/3088543
+" By default python-mode use python2, enable python3 by default
 augroup filetype_python
     autocmd!
     autocmd FileType python setlocal commentstring=\#\ %s
-    " By default python-mode use python2, enable python3 by default
     autocmd BufEnter,BufRead *.py let g:pymode_python = 'python3'
-    autocmd FileType python setlocal colorcolumn=81
 augroup END
 
 augroup filetype_make
@@ -208,21 +216,17 @@ augroup END
 
 augroup filetype_c
     autocmd!
-    autocmd FileType c setlocal colorcolumn=81
     autocmd FileType c setlocal commentstring=\/\/\ %s
     autocmd FileType cpp setlocal commentstring=\/\/\ %s
-    autocmd FileType cpp setlocal colorcolumn=81
 augroup END
 
 augroup filetype_sh
     autocmd!
-    autocmd FileType sh setlocal colorcolumn=81
     autocmd FileType sh setlocal commentstring=\#\ %s
 augroup END
 
 augroup filetype_markdown
     autocmd!
-    autocmd FileType markdown setlocal colorcolumn=0
     autocmd FileType markdown let g:markdown_folding=1
     autocmd FileType markdown let g:markdown_enable_folding=1
     autocmd FileType markdown setlocal foldmethod=manual
@@ -233,8 +237,10 @@ augroup END
 let ftToIgnore = ['latex', 'tex']
 augroup filetype_tex
     autocmd!
-    autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | highlight MatchParen ctermfg=None ctermbg=cyan cterm=None | endif
-    autocmd BufEnter * if index(ftToIgnore, &ft) >= 0 | highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
+    autocmd BufEnter * if index(ftToIgnore, &ft) < 0 | 
+                \ highlight MatchParen ctermfg=None ctermbg=cyan cterm=None | endif
+    autocmd BufEnter * if index(ftToIgnore, &ft) >= 0 | 
+                \ highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
 augroup END
 
 augroup grayout
@@ -244,7 +250,7 @@ augroup grayout
 augroup END
 
 augroup Poppy
-    au!
+    autocmd!
 augroup END
 
 augroup vimrc
@@ -492,5 +498,21 @@ cnoremap <C-f> <Right>
 " Command line history
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" }}}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                 FUNCTIONS                                  "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" {{{
+"
+function! SetColorColumn(arg1)
+    " Set color column
+    if a:arg1
+        " execute 'setlocal colorcolumn=81'
+        call matchadd('ColorColumn', '\%81v', 100)
+    else
+        execute 'setlocal colorcolumn=0'
+    endif
+endfunction
 
 " }}}
