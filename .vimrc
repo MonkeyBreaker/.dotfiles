@@ -121,6 +121,7 @@ let g:grayout_confirm    = 0
 " initialise vim-plug
 call plug#begin('~/.vim/plugged')
 
+
 " Features
 Plug '~/.fzf'                                                            " fzf.vim
 Plug 'junegunn/fzf.vim'
@@ -160,6 +161,12 @@ Plug 'ap/vim-buftabline'                                                 " Bufta
 Plug 'itchyny/lightline.vim'                                             " lightline.vim
 Plug 'bounceme/poppy.vim'                                                " poppy.vim
 Plug 'psliwka/vim-smoothie'                                              " Smooth scrolling for Vim done right
+
+
+" Text objects
+Plug 'kana/vim-textobj-user'                                             " Create your own text objects
+Plug 'idbrii/textobj-word-column.vim'                                    " Column text-object
+
 
 " Disable because I already created my colorscheme
 " Plug 'flazz/vim-colorschemes'  " Vim colorschemes

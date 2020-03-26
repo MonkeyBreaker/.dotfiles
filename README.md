@@ -279,6 +279,16 @@ switching between a single-line statement and a multi-line one.
 grayout.vim is a simple plugin that grays out inactive preprocessor blocks.
 Relies on `.grayout.conf` configuration files at the root of the project to efficiently highlight defines macros.
 
+### [vim-textobj-user](https://github.com/kana/vim-textobj-user)
+
+vim-textobj-user is a Vim plugin to create your own text objects without pain.
+
+### [textobj-word-column.vim](https://github.com/idbrii/textobj-word-column.vim)
+
+The word-based column text-object makes operating on columns of code conceptually simpler and reduces keystrokes.
+
+forked from [coderifous/textobj-word-column.vim](https://github.com/coderifous/textobj-word-column.vim).
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder
