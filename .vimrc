@@ -245,8 +245,6 @@ augroup END
 
 augroup grayout
     autocmd!
-    autocmd FileType c,cpp
-                \ autocmd BufEnter * GrayoutUpdate
 augroup END
 
 augroup Poppy
@@ -434,6 +432,9 @@ nnoremap <silent> <c-w>j :TmuxNavigateDown<cr>
 nnoremap <silent> <c-w>k :TmuxNavigateUp<cr>
 nnoremap <silent> <c-w>l :TmuxNavigateRight<cr>
 nnoremap <silent> <c-w>w :TmuxNavigatePrevious<cr>
+
+" Grayout update manually
+nnoremap <F5> :GrayoutUpdate<cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
