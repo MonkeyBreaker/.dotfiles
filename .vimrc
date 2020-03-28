@@ -185,7 +185,7 @@ syntax enable
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " za for using folding {{{
 
-let ftNoColorColum = ['vim', 'markdown', 'txt', 'tex'. 'latex']
+let ftNoColorColum = ['vim', 'md', 'markdown', 'text', 'tex'. 'latex']
 augroup ft_SetColorColumn
     " this one is which you're most likely to use?
     autocmd!
@@ -528,10 +528,10 @@ cnoremap <C-n> <Down>
 function! SetColorColumn(arg1)
     " Set color column
     if a:arg1
-        " execute 'setlocal colorcolumn=81'
         call matchadd('ColorColumn', '\%81v', 100)
     else
-        execute 'setlocal colorcolumn=0'
+        call clearmatches()
+        setlocal colorcolumn=0
     endif
 endfunction
 
