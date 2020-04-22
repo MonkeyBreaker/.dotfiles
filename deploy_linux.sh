@@ -19,7 +19,7 @@ deploy_vim_custom_files() {
         mkdir -p $1
     fi
     if [ ! -f "$1/$2" ]; then
-        ln -s $DOTFILES_FOLDER/colorscheme/$2 $1/$2
+        ln -s $DOTFILES_FOLDER/$2 $1/$2
     fi
 }
 
@@ -29,10 +29,10 @@ deploy_link_and_backup $TMUX_CONF_FILE
 
 # Deploy monkey colorscheme 
 VIM_COLORSCHEME_FOLDER=~/.vim/colors
-MONKEY_COLORSCHEME=monkey.vim
+MONKEY_COLORSCHEME=vim/colors/monkey.vim
 deploy_vim_custom_files $VIM_COLORSCHEME_FOLDER $MONKEY_COLORSCHEME
 
 # Deploy python patch for detect docstring as comments
 VIM_AFTER_PLUGIN_FOLDER=~/.vim/after/syntax
-VIM_DOCSTRING_PATCH=python.vim
+VIM_DOCSTRING_PATCH=vim/syntax/python.vim
 deploy_vim_custom_files $VIM_AFTER_PLUGIN_FOLDER $VIM_DOCSTRING_PATCH
