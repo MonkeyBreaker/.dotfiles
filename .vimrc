@@ -116,6 +116,11 @@ let g:ultisnips_python_style = 0x4
 let g:grayout_workingdir = 1
 let g:grayout_confirm    = 0
 
+" ale
+let g:ale_c_parse_compile_commands = 1
+let g:ale_lint_on_enter = 0 " don't run linter when enter program
+let g:ale_lint_on_text_changed = 'never' " run linter only on saving
+
 " 1}}} "
 " vim-plug {{{ "
 " initialise vim-plug
@@ -140,7 +145,7 @@ Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang
 if executable("clang-format")
     Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
-Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp']}                          " allows to gray unused code
+Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp'], 'commit' : '8aa3a6bc' }  " allows to gray unused code
 
 
 " tpope
@@ -186,8 +191,8 @@ syntax enable
 " za for using folding {{{
 
 let ftNoColorColum = ['vim', 'md', 'markdown', 'text', 'tex'. 'latex']
+" this one is which you're most likely to use?
 augroup ft_SetColorColumn
-    " this one is which you're most likely to use?
     autocmd!
     autocmd BufEnter * if index(ftNoColorColum, &ft) < 0 |
                 \ call SetColorColumn(1) | else |
@@ -214,17 +219,18 @@ augroup filetype_python
     autocmd BufEnter,BufRead *.py let g:pymode_python = 'python3'
 augroup END
 
+" Use actual tab chars in Makefiles.
 augroup filetype_make
     autocmd!
-	" Use actual tab chars in Makefiles.
     autocmd FileType make set tabstop=8 shiftwidth=8 softtabstop=0 noexpandtab
     autocmd FileType make setlocal commentstring=\#\ %s
 augroup END
 
+let ftCstyle = ['c', 'cpp']
 augroup filetype_c
     autocmd!
-    autocmd FileType c setlocal commentstring=\/\/\ %s
-    autocmd FileType cpp setlocal commentstring=\/\/\ %s
+    autocmd BufEnter * if index(ftCstyle, &ft) >= 0 |
+                \ setlocal commentstring=\/\/\ %s | endif
 augroup END
 
 augroup filetype_sh
@@ -250,6 +256,21 @@ augroup filetype_tex
                 \ highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
 augroup END
 
+if has('patch-8-1-0372')
+augroup toggleRelativeLineNumbers
+    autocmd!
+
+    autocmd InsertEnter,BufLeave,WinLeave,FocusLost * nested
+                \ if &l:number && empty(&buftype) |
+                \ setlocal norelativenumber |
+                \ endif
+    autocmd InsertLeave,BufEnter,WinEnter,FocusGained * nested
+                \ if &l:number && empty(&buftype) |
+                \ setlocal relativenumber |
+                \ endif
+augroup END
+endif
+
 augroup grayout
     autocmd!
 augroup END
@@ -258,9 +279,9 @@ augroup Poppy
     autocmd!
 augroup END
 
+" Move to the directory of the file in each buffer
 augroup vimrc
     autocmd!
-    " Move to the directory each buffer
     autocmd BufEnter * silent! lcd %:p:h
 augroup END
 
@@ -454,6 +475,11 @@ nnoremap <silent> <c-w>w :TmuxNavigatePrevious<cr>
 " Grayout update manually
 nnoremap <F5> :GrayoutUpdate<cr>
 
+" ALE options
+nnoremap <c-h> :ALEHover<cr>
+nnoremap <silent> <leader>ne :ALENext<cr>
+nnoremap <silent> <leader>Ne :ALEPrevious<cr>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   INSERT                                   "
@@ -529,7 +555,7 @@ cnoremap <C-n> <Down>
 function! SetColorColumn(arg1)
     " Set color column
     if a:arg1
-        call matchadd('ColorColumn', '\%81v', 100)
+        call matchadd('ColorColumn', '\%82v', 100)
     else
         call clearmatches()
         setlocal colorcolumn=0
