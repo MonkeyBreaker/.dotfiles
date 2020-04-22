@@ -1,33 +1,38 @@
 #!/bin/sh
 
-VIM_COLORSCHEME_FOLDER=~/.vim/colors/
-MONKEY_COLORSCHEME=monkey.vim
-VIM_CUSTOMFOLDER=$(pwd)
+DOTFILES_FOLDER=$(pwd)
 VIMRC_FILE=.vimrc
+TMUX_CONF_FILE=.tmux.conf
+
+deploy_link_and_backup() {
+    if [ ! -L ~/"$1" ]; then
+        if [ -f ~/"$1" ]; then
+            echo "Backuping original $1, old condiguration will be found in ~/$1.old"
+            mv ~/$1 ~/$1.old
+        fi
+        ln -s $DOTFILES_FOLDER/$1 ~/
+    fi
+}
+
+deploy_vim_custom_files() {
+    if [ ! -d "$1" ]; then
+        mkdir -p $1
+    fi
+    if [ ! -f "$1/$2" ]; then
+        ln -s $DOTFILES_FOLDER/colorscheme/$2 $1/$2
+    fi
+}
 
 # Check and backup for existing .vimrc file
-if [ ! -L ~/"$VIMRC_FILE" ]; then
-    if [ -f ~/"$VIMRC_FILE" ]; then
-        echo "Backuping original $VIMRC_FILE, old condiguration will be found in ~/$VIMRC_FILE.old"
-        mv ~/$VIMRC_FILE ~/$VIMRC_FILE.old
-    fi
-    ln -s $VIM_CUSTOMFOLDER/$VIMRC_FILE ~/
-fi
+deploy_link_and_backup $VIMRC_FILE
+deploy_link_and_backup $TMUX_CONF_FILE
 
 # Deploy monkey colorscheme 
-if [ ! -d "$VIM_COLORSCHEME_FOLDER" ]; then
-    mkdir -p $VIM_COLORSCHEME_FOLDER
-fi
-if [ ! -f "$VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME" ]; then
-    ln -s $VIM_CUSTOMFOLDER/colorscheme/$MONKEY_COLORSCHEME $VIM_COLORSCHEME_FOLDER$MONKEY_COLORSCHEME
-fi
+VIM_COLORSCHEME_FOLDER=~/.vim/colors
+MONKEY_COLORSCHEME=monkey.vim
+deploy_vim_custom_files $VIM_COLORSCHEME_FOLDER $MONKEY_COLORSCHEME
 
-VIM_AFTER_PLUGIN_FOLDER=~/.vim/after/syntax/
-VIM_DOCSTRING_PATCH=python.vim
 # Deploy python patch for detect docstring as comments
-if [ ! -d "$VIM_AFTER_PLUGIN_FOLDER" ]; then
-    mkdir -p $VIM_AFTER_PLUGIN_FOLDER
-fi
-if [ ! -f "$VIM_AFTER_PLUGIN_FOLDER$VIM_DOCSTRING_PATCH" ]; then
-    ln -s $VIM_CUSTOMFOLDER/colorscheme/$VIM_DOCSTRING_PATCH $VIM_AFTER_PLUGIN_FOLDER$VIM_DOCSTRING_PATCH
-fi
+VIM_AFTER_PLUGIN_FOLDER=~/.vim/after/syntax
+VIM_DOCSTRING_PATCH=python.vim
+deploy_vim_custom_files $VIM_AFTER_PLUGIN_FOLDER $VIM_DOCSTRING_PATCH
