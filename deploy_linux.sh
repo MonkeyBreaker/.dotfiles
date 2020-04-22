@@ -15,11 +15,13 @@ deploy_link_and_backup() {
 }
 
 deploy_vim_custom_files() {
+    filename=$(echo $2 | rev | cut -d/ -f1 | rev)
     if [ ! -d "$1" ]; then
         mkdir -p $1
     fi
-    if [ ! -f "$1/$2" ]; then
-        ln -s $DOTFILES_FOLDER/$2 $1/$2
+    # I assume that only a symlink can be found at the destination
+    if ! [ -L "$1/$filename" ]; then
+        ln -s $DOTFILES_FOLDER/$2 $1/$filename
     fi
 }
 
