@@ -122,6 +122,9 @@ let g:ale_c_parse_compile_commands = 1
 let g:ale_lint_on_enter = 0 " don't run linter when enter program
 let g:ale_lint_on_text_changed = 'never' " run linter only on saving
 
+" lexima.vim
+let g:lexima_enable_newline_rules = 1
+
 " 1}}} "
 " vim-plug {{{ "
 " initialise vim-plug
@@ -160,6 +163,7 @@ if executable("ctags") || executable("global")
     Plug 'jsfaint/gen_tags.vim'                                          " gen_tags.vim
 endif
 Plug 'AndrewRadev/splitjoin.vim'                                         " simplifies the transition between multiline and single-line
+Plug 'cohama/lexima.vim'                                                 " Auto close parentheses and repeat by dot dot dot...
 
 
 " Appearance

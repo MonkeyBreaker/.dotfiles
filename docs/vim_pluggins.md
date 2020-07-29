@@ -304,6 +304,14 @@ The word-based column text-object makes operating on columns of code conceptuall
 
 forked from [coderifous/textobj-word-column.vim](https://github.com/coderifous/textobj-word-column.vim).
 
+### [lexima.vim](https://github.com/cohama/lexima.vim)
+
+Auto close parentheses and repeat by dot dot dot...
+
+Basically, you can automatically close pairs such as (), {}, "", ... But in
+advance, you can also customize the rule to automatically input any character
+on any context.
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder
