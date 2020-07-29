@@ -30,6 +30,7 @@ if has("win32unix")
 else
     let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
 endif
+let g:clang_auto_user_options='compile_commands.json, path'
 
 " Enable the snippets-support
 let g:clang_snippets = 1
@@ -298,7 +299,7 @@ augroup END
 iabbrev @@ monkey
 iabbrev plicense MIT
 iabbrev psignature <esc>:r signature.txt<cr>i
-iabbrev pccopy Copyright 2019 Monkey, all rights reserved.
+iabbrev pccopy Copyright 2020 Monkey, all rights reserved.
 " Insert date in format day/month/year
 iabbrev @date@ <c-r>=strftime("%d/%m/%y")<CR>
 
@@ -407,8 +408,8 @@ set undoreload=10000
 nmap <silent> qp <Esc>
 
 " Move lines Up & Down
-nnoremap <c-j> :let @"=col('.')<cr>:m+1<cr>==@"lh
-nnoremap <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh
+nnoremap <silent> <c-j> :let @"=col('.')<cr>:m+1<cr>==@"lh
+nnoremap <silent> <c-k> :let @"=col('.')<cr>:m-2<cr>==@"lh
 
 " Edit and sources .vimrc file
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -445,10 +446,10 @@ nnoremap <silent> g* :let @/ = expand('<cword>')\|set hlsearch<CR>
 nnoremap <silent> <leader><space> :noh<CR>
 
 " unimpaired buffer mappings
-nnoremap <silent> [b :bprevious!<CR>
-nnoremap <silent> ]b :bnext!<CR>
-nnoremap <silent> [B :bfirst!<CR>
-nnoremap <silent> ]B :blast!<CR>
+nnoremap <silent> <leader>bp :bprevious!<CR>
+nnoremap <silent> <leader>bn :bnext!<CR>
+nnoremap <silent> <leader>Bp :bfirst!<CR>
+nnoremap <silent> <leader>Bn :blast!<CR>
 
 " use Ag/Rg for grep if available
 if executable('rg') | set gp=rg\ -S\ --vimgrep\ --no-heading gfm=%f:%l:%c:%m,%f:%l%m,%f\ \ %l%m|
@@ -479,6 +480,10 @@ nnoremap <F5> :GrayoutUpdate<cr>
 nnoremap <c-h> :ALEHover<cr>
 nnoremap <silent> <leader>ne :ALENext<cr>
 nnoremap <silent> <leader>Ne :ALEPrevious<cr>
+
+" buffer manipulation
+nnoremap <silent> <leader>bd :b#\|bd#<cr>
+
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
