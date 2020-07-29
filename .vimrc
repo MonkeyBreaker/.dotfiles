@@ -145,7 +145,7 @@ Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang
 if executable("clang-format")
     Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
-Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp'], 'commit' : '8aa3a6bc' }  " allows to gray unused code
+Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp'] }  " allows to gray unused code
 
 
 " tpope

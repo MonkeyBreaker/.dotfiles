@@ -287,6 +287,13 @@ switching between a single-line statement and a multi-line one.
 grayout.vim is a simple plugin that grays out inactive preprocessor blocks.
 Relies on `.grayout.conf` configuration files at the root of the project to efficiently highlight defines macros.
 
+I encountered conflicts between `grayout.vim` and `clang_complete` because both of them have an internal `clang` module.
+To resolve this conflict and because I'm lazy write an issue, I modify `grayout.vim` as follow:
+
+* In the folder pluggin : `grayout.vim/python`
+* Rename `clang` folder into `clangG`
+* Update `grayout.py`, `utils.py` and `__init__.py` to import the local module
+
 ### [vim-textobj-user](https://github.com/kana/vim-textobj-user)
 
 vim-textobj-user is a Vim plugin to create your own text objects without pain.
