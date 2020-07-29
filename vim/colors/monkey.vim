@@ -56,3 +56,7 @@ hi DiffDelete          ctermfg=black       ctermbg=red         cterm=None
 hi DiffText            ctermfg=blue        ctermbg=yellow      cterm=None
 
 hi PreprocessorGrayout ctermfg=darkgray    ctermbg=234         cterm=None
+
+" buftabline pluggin
+hi BufTabLineCurrent   ctermfg=darkgreen    ctermbg=233        cterm=None
+hi BufTabLineActive    ctermfg=darkyellow   ctermbg=237        cterm=Italic
