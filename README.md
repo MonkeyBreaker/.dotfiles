@@ -5,8 +5,9 @@ It's personal work/preferences, take want you want but I'm not resposible if som
 
 I currently have the dotfiles for:
 
-* vim
+* alacritty
 * tmux
+* vim
 
 The docs folder contains information about the pluggins use and their mappings. Be careful, It could happen that the docs are not up-to-date !
 
