@@ -111,6 +111,9 @@ let g:tmux_navigator_no_mappings = 1
 "" vim-snippets
 " Comments are in GOOGLE style
 let g:ultisnips_python_style = 0x4
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 "" grayout.vim
 " Set the compiler's working directory to use .grayout.conf's directory
