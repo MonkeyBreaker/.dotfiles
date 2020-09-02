@@ -149,7 +149,7 @@ Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang
 if executable("clang-format")
     Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
-Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp'] }  " allows to gray unused code
+Plug 'mphe/grayout.vim', { 'for': ['c', 'cpp'] }                         " allows to gray unused code
 
 
 " tpope
@@ -261,6 +261,7 @@ augroup filetype_tex
                 \ highlight MatchParen ctermfg=None ctermbg=237 cterm=None | endif
 augroup END
 
+" Performances issues if this patch is not present
 if has('patch-8-1-0372')
 augroup toggleRelativeLineNumbers
     autocmd!
@@ -287,7 +288,7 @@ augroup END
 " Move to the directory of the file in each buffer
 augroup vimrc
     autocmd!
-    autocmd BufEnter * silent! lcd %:p:h
+    autocmd BufEnter * silent! call SetProjectRoot()
 augroup END
 
 " }}}
@@ -488,6 +489,9 @@ nnoremap <silent> <leader>Ne :ALEPrevious<cr>
 " buffer manipulation
 nnoremap <silent> <leader>bd :b#\|bd#<cr>
 
+" Toggle current directory from root project directory to current file
+" directory
+nnoremap <silent> <leader>twd :call ToggleWorkingDirectory()<cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -512,6 +516,9 @@ inoremap <F7> <esc>l:setlocal spell!<cr>i
 " Fix Shift+Tab
 inoremap <s-tab> <Esc><<i
 
+" Toggle current directory from root project directory to current file
+" directory
+inoremap <silent> <F6> <esc>:call ToggleWorkingDirectory()<cr>a
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -569,6 +576,42 @@ function! SetColorColumn(arg1)
         call clearmatches()
         setlocal colorcolumn=0
     endif
+endfunction
+
+" http://inlehmansterms.net/2014/09/04/sane-vim-working-directories/
+" set working directory to git project root
+" or directory of current file if not git project
+function! SetProjectRoot()
+  " default to the current file's directory
+  lcd %:p:h
+  let git_dir = system("git rev-parse --show-toplevel")
+  " See if the command output starts with 'fatal' (if it does, not in a git repo)
+  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+  " if git project, change local directory to git project root
+  if empty(is_not_git_dir)
+    lcd `=git_dir`
+  endif
+
+  return getcwd()
+endfunction
+
+function! ToggleWorkingDirectory()
+    let cwd = string(getcwd())
+
+    " instead of using substitute you could use
+    " Compare using the match (=~) operation instead of equal (==)
+    let git_dir = string(substitute(system("git rev-parse --show-toplevel"), '\n$', '', ''))
+    " See if the command output starts with 'fatal' (if it does, not in a git repo)
+    let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
+
+    if empty(is_not_git_dir) && !(cwd ==# git_dir)
+        call SetProjectRoot()
+    else
+        lcd %:p:h
+    endif
+
+    " print current directory
+    echo getcwd()
 endfunction
 
 " }}}

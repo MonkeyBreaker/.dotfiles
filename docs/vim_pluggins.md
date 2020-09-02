@@ -6,33 +6,35 @@ leader key : `-`
 
 ### Normal mode
 
-| Mapping                 | Effect                                     |
-|-------------------------|--------------------------------------------|
-| qp                      | As pressing `esc`                          |
-| `<F7>`                  | Toggle spell                               |
-| Ctrl + J                | Move line down                             |
-| Ctrl + K                | Move line up                               |
-| Ctrl + L                | Quick orthography fix                      |
-| `<leader>`ev            | Edit .vimrc                                |
-| `<leader>`sv            | Source .vimrc                              |
-| `<leader>`8             | Replace the content of the next parathesis |
-| `*, #, g*, g#`          | Disable jump (use n/N), highlight word     |
-| `<leader><espace>`      | Disable highlight                          |
-| <leader>bp, <leader>bn` | Jump to previous/next buffer               |
-| <leader>Bp, <leader>Bn` | Jump to first/last buffer                  |
-| `<leader>*,#`           | Grep word under cursor                     |
+| Mapping                 | Effect                                           |
+|-------------------------|--------------------------------------------------|
+| qp                      | As pressing `esc`                                |
+| `<F7>`                  | Toggle spell                                     |
+| Ctrl + J                | Move line down                                   |
+| Ctrl + K                | Move line up                                     |
+| Ctrl + L                | Quick orthography fix                            |
+| `<leader>`ev            | Edit .vimrc                                      |
+| `<leader>`sv            | Source .vimrc                                    |
+| `<leader>`8             | Replace the content of the next parathesis       |
+| `*, #, g*, g#`          | Disable jump (use n/N), highlight word           |
+| `<leader><espace>`      | Disable highlight                                |
+| <leader>bp, <leader>bn` | Jump to previous/next buffer                     |
+| <leader>Bp, <leader>Bn` | Jump to first/last buffer                        |
+| `<leader>*,#`           | Grep word under cursor                           |
+| `<leader>twd`           | Toggle cwd between root project and current file |
 
 ### Insert mode
 
-| Mapping  | Effect                 |
-|----------|------------------------|
-| `<F7>`   | Toggle spell           |
-| qp       | Enter normal mode      |
-| Ctrl + U | Toggle word case       |
-| Ctrl + L | Quick orthography fix  |
-| Ctrl + J | snippet jump forward   |
-| Ctrl + K | snippet jump backward  |
-| `<tab>`  | snippet expand trigger |
+| Mapping  | Effect                                           |
+|----------|--------------------------------------------------|
+| `<F6>`   | Toggle cwd between root project and current file |
+| `<F7>`   | Toggle spell                                     |
+| qp       | Enter normal mode                                |
+| Ctrl + U | Toggle word case                                 |
+| Ctrl + L | Quick orthography fix                            |
+| Ctrl + J | snippet jump forward                             |
+| Ctrl + K | snippet jump backward                            |
+| `<tab>`  | snippet expand trigger                           |
 
 ### Visual mode
 
