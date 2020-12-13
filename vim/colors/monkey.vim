@@ -34,8 +34,8 @@ hi Underline           ctermfg=147         ctermbg=None        cterm=Italic
 
 hi FoldColumn          ctermfg=132         ctermbg=None        cterm=None
 hi Folded              ctermfg=132         ctermbg=None        cterm=Bold
-
 hi Visual              ctermfg=248         ctermbg=238         cterm=None
+
 
 hi Pmenu               ctermfg=62          ctermbg=233         cterm=None
 hi PmenuSel            ctermfg=69          ctermbg=232         cterm=Bold
@@ -60,3 +60,6 @@ hi PreprocessorGrayout ctermfg=darkgray    ctermbg=234         cterm=None
 " buftabline pluggin
 hi BufTabLineCurrent   ctermfg=darkgreen    ctermbg=233        cterm=None
 hi BufTabLineActive    ctermfg=darkyellow   ctermbg=237        cterm=Italic
+
+" ALE
+hi ALEError            ctermfg=196          ctermbg=236        cterm=Bold
