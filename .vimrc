@@ -56,11 +56,12 @@ let g:buftabline_show=1
 " This is the default extra key bindings
 let g:fzf_action = {
             \ 'ctrl-t': 'tab split',
-            \ 'ctrl-x': 'split',
+            \ 'ctrl-h': 'split',
             \ 'ctrl-v': 'vsplit' }
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_commits_log_options = '--decorate=full --graph --color=always'
 
 "" Poppy
 let g:poppy_point_enable = 1
