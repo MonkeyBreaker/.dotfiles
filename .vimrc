@@ -292,7 +292,7 @@ augroup END
 " Move to the directory of the file in each buffer
 augroup vimrc
     autocmd!
-    autocmd BufEnter * silent! call SetProjectRoot()
+    autocmd BufEnter * silent! call SetWorkingDirectory(1)
 augroup END
 
 " }}}
@@ -495,7 +495,7 @@ nnoremap <silent> <leader>bd :b#\|bd#<cr>
 
 " Toggle current directory from root project directory to current file
 " directory
-nnoremap <silent> <leader>twd :call ToggleWorkingDirectory()<cr>
+nnoremap <silent> <leader>twd :call SetWorkingDirectory(0)<cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -522,7 +522,7 @@ inoremap <s-tab> <Esc><<i
 
 " Toggle current directory from root project directory to current file
 " directory
-inoremap <silent> <F6> <esc>:call ToggleWorkingDirectory()<cr>a
+inoremap <silent> <F6> <esc>:call SetWorkingDirectory(0)<cr>a
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -585,33 +585,36 @@ endfunction
 " http://inlehmansterms.net/2014/09/04/sane-vim-working-directories/
 " set working directory to git project root
 " or directory of current file if not git project
-function! SetProjectRoot()
-  " default to the current file's directory
-  lcd %:p:h
-  let git_dir = system("git rev-parse --show-toplevel")
-  " See if the command output starts with 'fatal' (if it does, not in a git repo)
-  let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
-  " if git project, change local directory to git project root
-  if empty(is_not_git_dir)
-    lcd `=git_dir`
-  endif
-
-  return getcwd()
-endfunction
-
-function! ToggleWorkingDirectory()
-    let cwd = string(getcwd())
+function! SetWorkingDirectory(use_root)
+    let cwd  = string(getcwd())
+    let top_level = system("git rev-parse --show-toplevel")
+    " This will be the true git project in case of submodules
+    let super_top_level = system("git rev-parse --show-superproject-working-tree")
 
     " instead of using substitute you could use
     " Compare using the match (=~) operation instead of equal (==)
-    let git_dir = string(substitute(system("git rev-parse --show-toplevel"), '\n$', '', ''))
+    if super_top_level ==# ''
+        let git_dir = top_level
+    else
+        let git_dir = super_top_level
+    endif
+
+    let git_dir_str = string(substitute(git_dir, '\n$', '', ''))
+
+    " Check if an error was returned by git
     " See if the command output starts with 'fatal' (if it does, not in a git repo)
     let is_not_git_dir = matchstr(git_dir, '^fatal:.*')
 
-    if empty(is_not_git_dir) && !(cwd ==# git_dir)
-        call SetProjectRoot()
+    if empty(is_not_git_dir) && ((a:use_root) || !(cwd ==# git_dir_str))
+        lcd `=git_dir`
     else
         lcd %:p:h
+        " if previously a git root folder was found
+        " check if the current toplevel is the same as the previous top level
+        " if they aren't, we're inside a submodule
+        if empty(is_not_git_dir) && !(string(substitute(system("git rev-parse --show-toplevel"), '\n$', '', '')) ==# string(substitute(top_level, '\n$', '', '')))
+            echo "current buffer is located inside a git submodule"
+        endif
     endif
 
     " print current directory
