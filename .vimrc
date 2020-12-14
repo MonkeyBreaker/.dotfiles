@@ -293,6 +293,9 @@ augroup END
 augroup vimrc
     autocmd!
     autocmd BufEnter * silent! call SetWorkingDirectory(1)
+    " automatically rebalance windows on vim resize
+    autocmd VimResized * :wincmd =
+
 augroup END
 
 " }}}
