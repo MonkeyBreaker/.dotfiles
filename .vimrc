@@ -96,6 +96,7 @@ let g:clang_format#style_options = {
             \ "AccessModifierOffset" : -4,
             \ "AllowShortIfStatementsOnASingleLine" : "false",
             \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "AlignConsecutiveMacros": "true",
             \ "Standard" : "Cpp11" }
 " Unknow parameters ... (Seems that not the last version is used)
 " \ "IndentGotoLabels" : "true",
@@ -128,6 +129,9 @@ let g:ale_lint_on_text_changed = 'never' " run linter only on saving
 
 " lexima.vim
 let g:lexima_enable_newline_rules = 1
+
+" python-mode
+let g:pymode_options_colorcolumn = 0
 
 " 1}}} "
 " vim-plug {{{ "
@@ -337,14 +341,6 @@ set backspace=indent,eol,start
 
 " Status line custom configuration
 set ls=2                  " Always show status line"
-set statusline=%f         " Path to the file
-set statusline+=\ -\      " Separator
-set statusline+=FileType: " Label
-set statusline+=%y        " Filetype of the file
-set statusline+=%=        " Switch to the right side
-set statusline+=%l        " Current line
-set statusline+=/         " Separator
-set statusline+=%L        " Total lines
 
 " Finding files
 " Search down into subfolders
@@ -435,10 +431,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <c-l> 1z=<c-o>
 nnoremap <F7> :setlocal spell!<cr>h 
 
-" Disable because now plugin commentary is used
-" Comment current line
-" nnoremap <leader>c 0"=commentstring<c-m>P
-
 " Go to next parathese, delete content and put in insert mode
 nnoremap <leader>8 f(vi(c
 
@@ -500,6 +492,9 @@ nnoremap <silent> <leader>bd :b#\|bd#<cr>
 " directory
 nnoremap <silent> <leader>twd :call SetWorkingDirectory(0)<cr>
 
+" Use Ctrl-p for opening FZF Files to open a file
+nnoremap <C-p> :Files<Cr>
+
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   INSERT                                   "
@@ -515,7 +510,7 @@ inoremap qp <esc>
 inoremap <c-u> <esc>lg~iwi
 
 " Quick correct orthography
-inoremap <c-l> <c-g>u<Esc>1z=a<c-g>u
+inoremap <c-l> <c-g>u<Esc>1z=a
 
 " Toggle spell check
 inoremap <F7> <esc>l:setlocal spell!<cr>i
@@ -568,6 +563,15 @@ cnoremap <C-f> <Right>
 " Command line history
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" It overwrites the :b command. Works just like normal :b, but if no 
+" arguments are provided, which does nothing by default, 
+" it opens up a buffer fuzzy finder.
+if executable('fzf') && exists('g:loaded_fzf_vim')
+command! -nargs=? -bang -complete=buffer B
+  \ if <q-args> ==# '' | Buffers | else | b<bang> <args> | endif
+cnoreabbrev <expr> b (getcmdtype() ==# ':' && getcmdline() ==# 'b') ? 'B' : 'b'
+endif
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
