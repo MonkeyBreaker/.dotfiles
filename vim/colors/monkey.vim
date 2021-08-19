@@ -154,7 +154,7 @@ call s:hi('Normal',       [253, ''], [s:bg_color,   ''], 'None')
 call s:hi('Cursor',       [253, ''], [s:bg_color,   ''], 'None')
 call s:hi('CursorLine',   ['',  ''], [s:bg_color+1, ''], 'None')
 call s:hi('LineNr',       [244, ''], [s:bg_color,   ''], 'None')
-call s:hi('CursorLineNr', [253, ''], [94,           ''], 'None')
+call s:hi('CursorLineNr', [253, ''], [s:bg_color, ''], 'None')
 
 " -----------------
 " - Number column -
@@ -195,7 +195,7 @@ call s:hi('NonText', [105, ''], ['',  ''], 'Bold')
 
 call s:hi('Todo',        [197, ''], [s:bg_color, ''], 'Bold')
 call s:hi('Underline',   [147, ''], ['',         ''], 'Italic')
-call s:hi('Error',       ['9', ''], [196,        ''], 'Bold')
+call s:hi('Error',       [251, ''], [196,        ''], 'Bold')
 call s:hi('ErrorMsg',    [160, ''], [245,        ''], 'None')
 call s:hi('WarningMsg',  [226, ''], [245,        ''], 'None')
 call s:hi('Ignore',      [221, ''], ['',         ''], 'Bold')
@@ -290,3 +290,6 @@ call s:hi('BufTabLineActive',  [184, ''], [237, ''], 'Italic')
 " ALE
 call s:hi('ALEError',     [196, ''], ['',  ''], 'Underline')
 call s:hi('ALEErrorSign', [196, ''], ['', ''], 'Bold')
+
+" TEX
+call s:hi('texCmdEnv', [172, ''], ['', ''], 'Bold')
