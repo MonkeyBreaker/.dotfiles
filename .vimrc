@@ -24,13 +24,16 @@ if executable("global")
     let g:gen_tags#gtags_default_map=1
 endif
 
-"" clang_complete
-if has("win32unix")
-    let g:clang_library_path='/usr/bin/cygclang-5.0.dll'
-else
-    let g:clang_library_path='/usr/lib/llvm-6.0/lib/'
-endif
-let g:clang_auto_user_options='compile_commands.json, path'
+"" vim-lsp
+let g:lsp_document_highlight_enabled = 0
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <c-h> <plug>(lsp-hover)
+endfunction
 
 " Enable the snippets-support
 let g:clang_snippets = 1
@@ -153,7 +156,8 @@ Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp']}                       " vim-c
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' }                 " VIM Table Mode
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' } " VIM Python Mode
 Plug 'lervag/vimtex', { 'for': 'tex' }                                   " vimtex
-Plug 'xavierd/clang_complete', { 'for': ['c', 'cpp']}                    " clang_complete
+Plug 'prabirshrestha/vim-lsp'                                            " Async Language Server Protocol
+Plug 'mattn/vim-lsp-settings'                                            " Auto configurations for Language Servers for vim-lsp.
 if executable("clang-format")
     Plug 'rhysd/vim-clang-format'                                        " vim-clang-format
 endif
@@ -291,6 +295,12 @@ augroup END
 
 augroup Poppy
     autocmd!
+augroup END
+
+augroup lsp_install
+    autocmd!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
 " Move to the directory of the file in each buffer
@@ -481,7 +491,7 @@ nnoremap <silent> <c-w>w :TmuxNavigatePrevious<cr>
 nnoremap <F5> :GrayoutUpdate<cr>
 
 " ALE options
-nnoremap <c-h> :ALEHover<cr>
+" nnoremap <c-h> :ALEHover<cr>
 nnoremap <silent> <leader>ne :ALENext<cr>
 nnoremap <silent> <leader>Ne :ALEPrevious<cr>
 
