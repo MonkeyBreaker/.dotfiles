@@ -213,6 +213,8 @@ augroup ft_SetColorColumn
     autocmd!
     autocmd BufEnter * if index(ftNoColorColum, &ft) < 0 |
                 \ call SetColorColumn(1) | else |
+                \ setlocal fo-=t fo-=c   |
+                \ setlocal textwidth=100 |
                 \ call SetColorColumn(0) | endif
 augroup end
 
