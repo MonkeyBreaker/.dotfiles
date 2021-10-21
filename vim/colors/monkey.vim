@@ -291,5 +291,9 @@ call s:hi('BufTabLineActive',  [184, ''], [237, ''], 'Italic')
 call s:hi('ALEError',     [196, ''], ['',  ''], 'Underline')
 call s:hi('ALEErrorSign', [196, ''], ['', ''], 'Bold')
 
+" ALE
+call s:hi('LspErrorHighlight',     [196, ''], ['',  ''], 'Underline')
+call s:hi('LspErrorText',     [196, ''], ['',  ''], 'Underline')
+
 " TEX
 call s:hi('texCmdEnv', [172, ''], ['', ''], 'Bold')
