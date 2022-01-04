@@ -247,11 +247,13 @@ augroup filetype_make
     autocmd FileType make setlocal commentstring=\#\ %s
 augroup END
 
+" https://www.reddit.com/r/vim/comments/qpisdb/why_are_curly_braces_marked_as_errors_if_theyre/
 let ftCstyle = ['c', 'cpp']
 augroup filetype_c
     autocmd!
     autocmd BufEnter * if index(ftCstyle, &ft) >= 0 |
-                \ setlocal commentstring=\/\/\ %s | endif
+                \ setlocal commentstring=\/\/\ %s |
+                \ let c_no_curly_error = 1 | endif
 augroup END
 
 augroup filetype_sh
