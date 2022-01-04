@@ -260,10 +260,10 @@ call s:hi('PmenuThumb', [248, ''], [233, ''], 'None')
 " --------------------------------
 " Diff
 " --------------------------------
-call s:hi('DiffAdd',    [0, ''], [2,  ''], 'None')
-call s:hi('DiffChange', [0, ''], [11, ''], 'None')
-call s:hi('DiffDelete', [0, ''], [9,  ''], 'None')
-call s:hi('DiffText',   [0, ''], [11, ''], 'None')
+call s:hi('DiffAdd',    [0, ''], [22,  ''], 'None')
+call s:hi('DiffChange', [0, ''], [s:bg_color, ''], 'None')
+call s:hi('DiffDelete', [0, ''], [124,  ''], 'None')
+call s:hi('DiffText',   [0, ''], [24, ''], 'None')
 
 " --------------------------------
 " Spelling
