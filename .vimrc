@@ -183,6 +183,8 @@ Plug 'ap/vim-buftabline'                                                 " Bufta
 Plug 'itchyny/lightline.vim'                                             " lightline.vim
 Plug 'bounceme/poppy.vim'                                                " poppy.vim
 Plug 'psliwka/vim-smoothie'                                              " Smooth scrolling for Vim done right
+Plug 'cocopon/colorswatch.vim'                                           " generates a beautiful color swatch of the current buffer.
+Plug 'cocopon/inspecthi.vim'                                             " small tool for inspecting highlighting link structure.
 
 
 " Text objects

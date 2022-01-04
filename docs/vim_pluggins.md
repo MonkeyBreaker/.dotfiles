@@ -314,6 +314,22 @@ Basically, you can automatically close pairs such as (), {}, "", ... But in
 advance, you can also customize the rule to automatically input any character
 on any context.
 
+### [colorswatch.vim](https://github.com/cocopon/colorswatch.vim)
+
+colorswatch.vim generates a beautiful color swatch of the current buffer.
+
+To generate a color swatch, just type the following commnand:
+
+`:ColorSwatchGenerate`
+
+### [Inspecthi](https://github.com/cocopon/inspecthi.vim)
+
+Inspecthi is a small tool for inspecting highlighting link structure.
+
+* :Inspecthi
+* :InspecthiShowInspector
+* :InspecthiHideInspector
+
 ### [Vim colorschemes](https://github.com/flazz/vim-colorschemes)
 
 **DISABLED** Because I created my custom coloscheme (in forlder
