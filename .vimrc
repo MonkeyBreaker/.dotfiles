@@ -32,6 +32,7 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gi <plug>(lsp-implementation)
     nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> gr <plug>(lsp-references)
     nmap <buffer> <c-h> <plug>(lsp-hover)
 endfunction
 
@@ -65,6 +66,7 @@ let g:fzf_action = {
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_commits_log_options = '--decorate=full --graph --color=always'
+let $FZF_DEFAULT_COMMAND = 'fd --type file'
 
 "" Poppy
 let g:poppy_point_enable = 1
@@ -248,11 +250,13 @@ augroup filetype_make
 augroup END
 
 " https://www.reddit.com/r/vim/comments/qpisdb/why_are_curly_braces_marked_as_errors_if_theyre/
+" https://stackoverflow.com/questions/8062608/vim-and-c11-lambda-auto-indentation
 let ftCstyle = ['c', 'cpp']
 augroup filetype_c
     autocmd!
     autocmd BufEnter * if index(ftCstyle, &ft) >= 0 |
                 \ setlocal commentstring=\/\/\ %s |
+                \ setlocal cindent cino=j1,(0,ws,Ws |
                 \ let c_no_curly_error = 1 | endif
 augroup END
 
@@ -510,6 +514,7 @@ nnoremap <silent> <leader>twd :call SetWorkingDirectory(0)<cr>
 
 " Use Ctrl-p for opening FZF Files to open a file
 nnoremap <C-p> :Files<Cr>
+nnoremap <C-q> :Buffers<Cr>
 
 " }}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
